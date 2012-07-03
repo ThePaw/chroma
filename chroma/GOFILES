@@ -1,0 +1,4 @@
+GOFILES=\
+     colorspace.go\
+     illum.go\
+     wb.go\
