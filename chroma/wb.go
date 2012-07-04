@@ -226,9 +226,9 @@ func temp2xyz(temp float64) (x, y, z float64) {
 
 // Spectral data for black body at given temperature
 func blackBodySpect(λ, m1, m2, temp float64) float64 {
-	wlm := λ * 1e-9 // Wavelength in meters
-	c1 := 3.7417715247e-16   //3.7417..= c1 = 2*Pi*h*c2  where h=Planck constant, c=velocity of light
-	c2 := 1.438786e-2        //1.4387..= c2 = h*c/k  where k=Boltzmann constant
+	wlm := λ * 1e-9        // Wavelength in meters
+	c1 := 3.7417715247e-16 //3.7417..= c1 = 2*Pi*h*c2  where h=Planck constant, c=velocity of light
+	c2 := 1.438786e-2      //1.4387..= c2 = h*c/k  where k=Boltzmann constant
 	return (c1 * math.Pow(wlm, -5.0)) / (math.Exp(c2/(wlm*temp)) - 1.0)
 }
 
@@ -246,13 +246,13 @@ func xyz2mul(x, y, z, green float64, isRaw bool) (rmul, gmul, bmul float64) {
 
 	//recalculate channels multipliers with new values of XYZ due to whitebalance
 	if isRaw {
-	    rmul = sRGB_xyz[0][0]*xX + sRGB_xyz[0][1]*yY + sRGB_xyz[0][2]*zZ
-	    gmul = sRGB_xyz[1][0]*xX + sRGB_xyz[1][1]*yY + sRGB_xyz[1][2]*zZ
-	    bmul = sRGB_xyz[2][0]*xX + sRGB_xyz[2][1]*yY + sRGB_xyz[2][2]*zZ
+		rmul = sRGB_xyz[0][0]*xX + sRGB_xyz[0][1]*yY + sRGB_xyz[0][2]*zZ
+		gmul = sRGB_xyz[1][0]*xX + sRGB_xyz[1][1]*yY + sRGB_xyz[1][2]*zZ
+		bmul = sRGB_xyz[2][0]*xX + sRGB_xyz[2][1]*yY + sRGB_xyz[2][2]*zZ
 	} else {
-	rmul = sRGBd65_xyz[0][0]*xX + sRGBd65_xyz[0][1]*yY + sRGBd65_xyz[0][2]*zZ
-	gmul = sRGBd65_xyz[1][0]*xX + sRGBd65_xyz[1][1]*yY + sRGBd65_xyz[1][2]*zZ
-	bmul = sRGBd65_xyz[2][0]*xX + sRGBd65_xyz[2][1]*yY + sRGBd65_xyz[2][2]*zZ
+		rmul = sRGBd65_xyz[0][0]*xX + sRGBd65_xyz[0][1]*yY + sRGBd65_xyz[0][2]*zZ
+		gmul = sRGBd65_xyz[1][0]*xX + sRGBd65_xyz[1][1]*yY + sRGBd65_xyz[1][2]*zZ
+		bmul = sRGBd65_xyz[2][0]*xX + sRGBd65_xyz[2][1]*yY + sRGBd65_xyz[2][2]*zZ
 	}
 	gmul /= green
 
