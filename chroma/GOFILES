@@ -1,4 +1,7 @@
 GOFILES=\
+     aux.go\
      colorspace.go\
+     gabor.go\
      illum.go\
      wb.go\
+     xyz.go\
