@@ -50,5 +50,3 @@ func clip4(x, y, z, a *int) {
 	}
 	return
 }
-
-

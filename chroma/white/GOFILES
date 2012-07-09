@@ -4,4 +4,3 @@ GOFILES=\
      gabor.go\
      illum.go\
      wb.go\
-     xyz.go\

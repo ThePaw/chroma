@@ -1,6 +1,6 @@
 package chroma
-// Gabor's matrices
 
+// Gabor's matrices
 
 //%%%%%%%%%%%%%%%%%%%%%%%%
 //    TEST using Gabor's matrices

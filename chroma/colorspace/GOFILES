@@ -1,0 +1,10 @@
+GOFILES=\
+     cie_lab.go\
+     cie_lch.go\
+     cie_luv.go\
+     cie_xyz.go\
+     cie_yxy.go\
+     const.go\
+     hsv.go\
+     hunter_lab.go\
+     yuv.go\
