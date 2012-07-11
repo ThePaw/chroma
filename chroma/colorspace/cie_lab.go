@@ -28,12 +28,12 @@ func labInv(x float64) (y float64) {
 
 // LabToXYZ converts a CIE L*ab triple to a CIE XYZ triple.
 func LabToXYZ(l, a, b float64) (x, y, z float64) {
-	y = (l + 16.0) / 116.0
-	x = a/500.0 + y
-	z = y - b/200.0
-	x = wX * labInv(x)
-	y = wY * labInv(y)
-	z = wZ * labInv(z)
+	l = (l + 16)/116
+	a = l + a/500
+	b = l - b/200
+	x = wX * labInv(a)
+	y = wY * labInv(l)
+	z = wZ * labInv(b)
 	return
 }
 

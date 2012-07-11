@@ -7,6 +7,7 @@
 // http://www.easyrgb.com/index.php?X=DELT
 
 package chroma
+
 import "math"
 
 // Returns H° value

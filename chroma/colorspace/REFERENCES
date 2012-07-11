@@ -1,0 +1,20 @@
+// References
+// The definitions of these spaces and the many of the transformation formulas
+// can be found in:
+//
+// Poynton, "Frequently Asked Questions About Gamma" http://www.poynton.com/notes/colour_and_gamma/GammaFAQ.html
+// Poynton, "Frequently Asked Questions About Color" http://www.poynton.com/notes/colour_and_gamma/ColorFAQ.html
+//
+// Wikipedia articles: 
+// http://en.wikipedia.org/wiki/SRGB
+// http://en.wikipedia.org/wiki/YUV
+// http://en.wikipedia.org/wiki/YCbCr
+// http://en.wikipedia.org/wiki/YPbPr
+// http://en.wikipedia.org/wiki/YDbDr
+// http://en.wikipedia.org/wiki/YIQ
+// http://en.wikipedia.org/wiki/HSL_and_HSV
+// http://en.wikipedia.org/wiki/CIE_1931_color_space
+// http://en.wikipedia.org/wiki/Lab_color_space
+// http://en.wikipedia.org/wiki/CIELUV_color_space
+// http://en.wikipedia.org/wiki/LMS_color_space
+

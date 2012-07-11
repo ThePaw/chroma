@@ -21,14 +21,10 @@ func check(x, y float64) bool {
 
 // test against known values
 func TestRGB2XYZ(t *testing.T) {
-	fmt.Println("test of RGB to XYZ")
-	r := uint8(50)
-	g := uint8(55)
-	b := uint8(100)
+	fmt.Println("test of sRGB to XYZ")
+	r, g, b := 0.545877, 0.966567, 0.463759
 	x, y, z := (RGBToXYZ(r, g, b))
-	x2 := (4.982)
-	y2 := (4.331)
-	z2 := (12.630)
+	x2, y2, z2 := 0.470645, 0.730177, 0.288323
 	if !check(x, x2) {
 		t.Error()
 		fmt.Println(x, x2)
@@ -44,24 +40,24 @@ func TestRGB2XYZ(t *testing.T) {
 }
 
 func TestXYZ2RGB(t *testing.T) {
-	fmt.Println("test of XYZ to RGB")
-	x, y, z := 56.060,   50.490,    8.160
-r, g, b := XYZToRGB(x, y, z)
-r2, g2, b2 := 254,   171,    32
-v := float64(r)
-v2 := float64(r2)
+	fmt.Println("test of XYZ to sRGB")
+	x, y, z := 0.470645, 0.730177, 0.288323
+	r, g, b := XYZToRGB(x, y, z)
+	r2, g2, b2 := 0.545877, 0.966567, 0.463759
+	v := float64(r)
+	v2 := float64(r2)
 	if !check(v, v2) {
 		t.Error()
 		fmt.Println("R: ", v, v2)
 	}
-v = float64(g)
-v2 = float64(g2)
+	v = float64(g)
+	v2 = float64(g2)
 	if !check(v, v2) {
 		t.Error()
 		fmt.Println("G: ", v, v2)
 	}
-v = float64(b)
-v2 = float64(b2)
+	v = float64(b)
+	v2 = float64(b2)
 	if !check(v, v2) {
 		t.Error()
 		fmt.Println("B: ", v, v2)
@@ -70,9 +66,9 @@ v2 = float64(b2)
 
 func TestXYZtoLab(t *testing.T) {
 	fmt.Println("test of XYZ to Lab")
-	x, y, z := 56.060, 50.490, 8.160
+	x, y, z := 0.470645, 0.730177, 0.288323
 	l, a, b := (XYZToLab(x, y, z))
-	l2, a2, b2 := 76.369, 21.174, 74.935
+	l2, a2, b2 := 88.456154,   -54.671483,    51.662818
 	if !check(l, l2) {
 		t.Error()
 		fmt.Println(l, l2)
@@ -89,9 +85,9 @@ func TestXYZtoLab(t *testing.T) {
 
 func TestLabToXYZ(t *testing.T) {
 	fmt.Println("test of Lab to XYZ")
-	l, a, b := 76.369, 21.174, 74.935
+	l, a, b := 88.456154,   -54.671483,    51.662818
 	x, y, z := (LabToXYZ(l, a, b))
-	x2, y2, z2 := 56.060, 50.490, 8.160
+	x2, y2, z2 := 0.470645, 0.730177, 0.288323
 	if !check(x, x2) {
 		t.Error()
 		fmt.Println(x, x2)
@@ -108,9 +104,9 @@ func TestLabToXYZ(t *testing.T) {
 
 func TestXYZtoLuv(t *testing.T) {
 	fmt.Println("test of XYZ to Luv")
-	x, y, z := 56.060, 50.490, 8.160
+	x, y, z := 0.470645, 0.730177, 0.288323
 	l, u, v := (XYZToLuv(x, y, z))
-	l2, u2, v2 := 76.369, 69.282, 73.457
+	l2, u2, v2 := 88.456154,   -51.330414, 76.405526
 	if !check(l, l2) {
 		t.Error()
 		fmt.Println(l, l2)
