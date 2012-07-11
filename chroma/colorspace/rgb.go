@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package chroma
+package colorspace
 
 import "math"
 
 // Convert RGB 0..1 to RGB 0..255. 
-func RGBToRGB8(r, g, b float64) (r8, g8, b8 uint8) {
+func Rgb2rgb8(r, g, b float64) (r8, g8, b8 uint8) {
 	r8 = uint8(clip(round(r), 255))
 	g8 = uint8(clip(round(g), 255))
 	b8 = uint8(clip(round(b), 255))

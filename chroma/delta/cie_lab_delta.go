@@ -6,7 +6,7 @@
 // Functions to calculate color differences. All of them refers to the CIE-L*ab color space.
 // http://www.easyrgb.com/index.php?X=DELT
 
-package chroma
+package delta
 
 import "math"
 

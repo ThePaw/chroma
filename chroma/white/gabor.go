@@ -1,4 +1,4 @@
-package chroma
+package white
 
 // Gabor's matrices
 

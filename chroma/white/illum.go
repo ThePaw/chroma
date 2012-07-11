@@ -1,6 +1,6 @@
 // Illumination functions
 
-package chroma
+package white
 
 //Values for Daylight illuminant: s0 s1 s2
 func daylight_spect(wavelength, m1, m2, temp float64) float64 {

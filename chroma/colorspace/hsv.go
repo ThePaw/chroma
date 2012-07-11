@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package chroma
+package colorspace
 
 import (
 	"math"
@@ -13,12 +13,8 @@ import (
 //    0 <= H < 360,
 //    0 <= S <= 1,
 //    0 <= V <= 1. 
-// The output sRGB values are scaled between 0 and 1.  This is the inverse
-// transformation of Rgb2Hsv.
-//
-// Wikipedia: http://en.wikipedia.org/wiki/HSL_and_HSV
-//
-func HSVTosRGB(h, s, v float64) (r, g, b float64) {
+// The output sRGB values are scaled between 0 and 1.
+func Hsv2Rgb(h, s, v float64) (r, g, b float64) {
 	c := s * v
 	min := v - c
 
@@ -77,9 +73,7 @@ func HSVTosRGB(h, s, v float64) (r, g, b float64) {
 // S = C/V                   (0 <= S <= 1),
 // V = max(R',G',B')         (0 <= V <= 1),
 // where C = max(R',G',B') - min(R',G',B'). 
-// Wikipedia: http://en.wikipedia.org/wiki/HSL_and_HSV
-
-func SRGBToHSV(r, g, b float64) (h, s, v float64) {
+func Rgb2Hsv(r, g, b float64) (h, s, v float64) {
 	max := max3(r, g, b)
 	min := min3(r, g, b)
 	c := max - min

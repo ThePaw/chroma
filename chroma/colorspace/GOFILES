@@ -1,10 +1,21 @@
 GOFILES=\
+     aux.go\
+     cat02.go\
      cie_lab.go\
      cie_lch.go\
      cie_luv.go\
      cie_xyz.go\
      cie_yxy.go\
      const.go\
+     hsi.go\
+     hsl.go\
      hsv.go\
      hunter_lab.go\
+     jpeg_ycbcr.go\
+     rgb.go\
+     wrappers.go\
+     ycbcr.go\
+     ydbdr.go\
+     yiq.go\
+     ypbpr.go\
      yuv.go\

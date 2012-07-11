@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package chroma
+package colorspace
 
 // All transformations assume a two degree observer angle and a D65 illuminant.
 // The white point can be changed by modifying the wX, wY, wZ below.

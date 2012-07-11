@@ -1,6 +1,6 @@
 // Color space conversion matrices
 
-package chroma
+package white
 
 // Color space conversion to/from XYZ; color spaces adapted to D65
 // CIE 1931 XYZ color space

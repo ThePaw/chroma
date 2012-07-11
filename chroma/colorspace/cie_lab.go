@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package chroma
+package colorspace
 
 import "math"
 
@@ -26,9 +26,9 @@ func labInv(x float64) (y float64) {
 	return
 }
 
-// LabToXYZ converts a CIE L*ab triple to a CIE XYZ triple.
-func LabToXYZ(l, a, b float64) (x, y, z float64) {
-	l = (l + 16)/116
+// Lab2Xyz converts a CIE L*ab triple to a CIE XYZ triple.
+func Lab2Xyz(l, a, b float64) (x, y, z float64) {
+	l = (l + 16) / 116
 	a = l + a/500
 	b = l - b/200
 	x = wX * labInv(a)
@@ -37,8 +37,8 @@ func LabToXYZ(l, a, b float64) (x, y, z float64) {
 	return
 }
 
-// XYZToLab converts an XYZ triple to a CIE L*ab triple.
-func XYZToLab(x, y, z float64) (l, a, b float64) {
+// Xyz2Lab converts an XYZ triple to a CIE L*ab triple.
+func Xyz2Lab(x, y, z float64) (l, a, b float64) {
 	x /= wX
 	y /= wY
 	z /= wZ
