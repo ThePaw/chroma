@@ -4,7 +4,19 @@
 
 package white
 
+import "math"
+
 // Auxilliary functions
+
+// Maximum of a, b, and c
+func max3(a, b, c float64) (y float64) {
+	if a >= b {
+		y = math.Max(a, c)
+	} else {
+		y = math.Max(b, c)
+	}
+	return
+}
 
 // Clip 3 channels to 0..255
 func clip3(x, y, z *int) {

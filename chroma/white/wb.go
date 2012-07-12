@@ -83,12 +83,11 @@ func spect2xyz(spec_intens func(λ, m1, m2, temp float64) float64, _m1, _m2, _te
 
 	λ = 350.0
 	for i := 0; λ < 830.1; i++ {
-
-		λ += 5.0
 		Me := spec_intens(λ, _m1, _m2, _temp)
 		xX += Me * cie_colour_match[i][0]
 		yY += Me * cie_colour_match[i][1]
 		zZ += Me * cie_colour_match[i][2]
+		λ += 5.0
 	}
 	xyz = (xX + yY + zZ)
 	x = xX / xyz
@@ -99,7 +98,7 @@ func spect2xyz(spec_intens func(λ, m1, m2, temp float64) float64, _m1, _m2, _te
 }
 
 // XYZ for specially handled illumination methods
-func illum2xyz(method int) (x, y, z float64) {
+func illum2xyz(illum uint8) (x, y, z float64) {
 	const (
 		Daylight = iota
 		Cloudy
@@ -134,7 +133,7 @@ func illum2xyz(method int) (x, y, z float64) {
 
 	fn := daylight5300_spect //default
 
-	switch method {
+	switch illum {
 	case Daylight:
 		fn = daylight5300_spect
 	case Cloudy:
@@ -203,7 +202,6 @@ func temp2xyz(temp float64) (x, y, z float64) {
 
 	if temp <= 4000 {
 		// if temperature is between 2000K and 4000K we use blackbody, because there will be no Daylight reference below 4000K...
-		// of course, the previous version of RT used the "magical" but wrong formula of U.Fuchs (Ufraw).
 		x, y, z = spect2xyz(blackBodySpect, 0., 0., temp)
 	} else {
 		// from 4000K up to 25000K: using the D illuminant (daylight) which is standard
@@ -296,5 +294,71 @@ func mul2temp(rmul, gmul, bmul float64) (temp, green float64) {
 	green = (tmpg / tmpr) / (gmul / rmul)
 	clipTemp(&temp)
 	clipGreen(&green)
+	return
+}
+
+// ++pac
+func mul2RGB(r, g, b, rmul, gmul, bmul float64) (rOut, gOut, bOut float64) {
+
+	// compute channel multipliers
+
+	camwb_red := 1.0
+	camwb_green := 1.0
+	camwb_blue := 1.0
+	initialGain := 1.0
+	rm := camwb_red / rmul
+	gm := camwb_green / gmul
+	bm := camwb_blue / bmul
+
+	/*float mul_lum = 0.299*rm + 0.587*gm + 0.114*bm
+	  rm /= mul_lum
+	  gm /= mul_lum
+	  bm /= mul_lum*/
+
+	min := rm
+	if min > gm {
+		min = gm
+	}
+	if min > bm {
+		min = bm
+	}
+	min /= initialGain
+	rm /= min
+	gm /= min
+	bm /= min
+	rOut = r * rm
+	gOut = g * gm
+	bOut = b * bm
+	max := rOut
+	if max < gOut {
+		max = gOut
+	}
+	if max < bOut {
+		max = bOut
+	}
+	if max > 1 {
+		rOut /= max
+		gOut /= max
+		bOut /= max
+	}
+	return
+}
+
+// Transform input sRGB color to output sRGB color corrected for color temperature of illuminator.
+func TempWhiteBalance(r, g, b, temp float64) (rOut, gOut, bOut float64) {
+	green := 1.0
+	x, y, z := temp2xyz(temp)
+	rmul, gmul, bmul := xyz2mul(x, y, z, green, false)
+	rOut, gOut, bOut = mul2RGB(r, g, b, rmul, gmul, bmul)
+	return
+}
+
+// Transform input sRGB color to output sRGB color corrected for selected types of illuminators.
+// See illum2xyz() for supported illuminators.
+func IllumWhiteBalance(r, g, b float64, illum uint8) (rOut, gOut, bOut float64) {
+	green := 1.0
+	x, y, z := illum2xyz(illum)
+	rmul, gmul, bmul := xyz2mul(x, y, z, green, false)
+	rOut, gOut, bOut = mul2RGB(r, g, b, rmul, gmul, bmul)
 	return
 }
