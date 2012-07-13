@@ -299,48 +299,21 @@ func mul2temp(rmul, gmul, bmul float64) (temp, green float64) {
 
 // ++pac
 func mul2RGB(r, g, b, rmul, gmul, bmul float64) (rOut, gOut, bOut float64) {
-
 	// compute channel multipliers
+	rm := 1.0 / rmul
+	gm := 1.0 / gmul
+	bm := 1.0 / bmul
 
-	camwb_red := 1.0
-	camwb_green := 1.0
-	camwb_blue := 1.0
-	initialGain := 1.0
-	rm := camwb_red / rmul
-	gm := camwb_green / gmul
-	bm := camwb_blue / bmul
+	mul_lum := 0.299*rm + 0.587*gm + 0.114*bm
 
-	/*float mul_lum = 0.299*rm + 0.587*gm + 0.114*bm
-	  rm /= mul_lum
-	  gm /= mul_lum
-	  bm /= mul_lum*/
+	rm /= mul_lum
+	gm /= mul_lum
+	bm /= mul_lum
 
-	min := rm
-	if min > gm {
-		min = gm
-	}
-	if min > bm {
-		min = bm
-	}
-	min /= initialGain
-	rm /= min
-	gm /= min
-	bm /= min
+	// compute output color
 	rOut = r * rm
 	gOut = g * gm
 	bOut = b * bm
-	max := rOut
-	if max < gOut {
-		max = gOut
-	}
-	if max < bOut {
-		max = bOut
-	}
-	if max > 1 {
-		rOut /= max
-		gOut /= max
-		bOut /= max
-	}
 	return
 }
 

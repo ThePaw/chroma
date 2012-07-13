@@ -1,0 +1,6 @@
+INDEX
+
+4000K-source.png	Source image, black body color at 4000K  2deg  sRGB    1.0000 0.6636 0.3583
+4000K-Rawtherapee.png	Rawtherapee processed source, white balance = temperature 4000K
+4000K-out.png		Chroma/white processed source, white balance = temperature 4000K, see 01_test.go
+
