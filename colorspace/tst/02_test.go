@@ -27,7 +27,7 @@ func check_diff(x, y float64) bool {
 
 func TestRgb2AnyRoundtrip(t *testing.T) {
 	type fn func(r, g, b float64) (x, y, z float64)
-	nFunc := 13
+	nFunc := 14
 	f := [][]fn{{Rgb2Xyz, Xyz2Rgb},
 		{Rgb2Lms, Lms2Rgb},
 		{Rgb2Lch, Lch2Rgb},
@@ -40,8 +40,8 @@ func TestRgb2AnyRoundtrip(t *testing.T) {
 		{Rgb2Ydbdr, Ydbdr2Rgb},
 		{Rgb2Yiq, Yiq2Rgb},
 		{Rgb2Ypbpr, Ypbpr2Rgb},
-		{Rgb2Yuv, Yuv2Rgb}}
-//		{Rgb2Ycbcr, Ycbcr2Rgb}}   // Ycbcr2Rgb fails!
+		{Rgb2Yuv, Yuv2Rgb},
+		{Rgb2Ycbcr, Ycbcr2Rgb}}
 
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)

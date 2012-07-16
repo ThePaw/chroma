@@ -199,9 +199,8 @@ func TestRGBtoYCbCr(t *testing.T) {
 	r, g, b := 0.540000, 0.960000, 0.460000
 	d, e, f := 186.254980, 87.874740, 90.067000
 
-
 	fn1 := Rgb2Ycbcr
-	fn2 := 	Ycbcr2Rgb
+	fn2 := Ycbcr2Rgb
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
