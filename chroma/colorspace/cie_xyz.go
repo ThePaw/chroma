@@ -15,7 +15,7 @@ func Rgb2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// xyz2Rgb converts an XYZ triple to an RGB triple.
+// Xyz2Rgb converts an XYZ triple to an RGB triple.
 func Xyz2Rgb(x, y, z float64) (r, g, b float64) {
 	// convert to linear RGB
 	r1 := 3.2406*x - 1.5372*y - 0.4986*z
