@@ -196,10 +196,12 @@ CAT02 LMS     0.611749, 0.910088, 0.294880
 */
 func TestRGBtoYCbCr(t *testing.T) {
 	fmt.Println("test of sRGB to Y'CbCr and back")
-	r, g, b := 0.545877, 0.966567, 0.463759
-	d, e, f := 187.577791, 87.586330, 90.040886
+	r, g, b := 0.540000, 0.960000, 0.460000
+	d, e, f := 186.254980, 87.874740, 90.067000
+
+
 	fn1 := Rgb2Ycbcr
-	fn2 := Ycbcr2Rgb
+	fn2 := 	Ycbcr2Rgb
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -215,7 +217,7 @@ func TestRGBtoYCbCr(t *testing.T) {
 		fmt.Println("f: ", f, f2)
 	}
 	//back
-	r2, g2, b2 := fn2(d, e, f)
+	r2, g2, b2 := fn2(d2, e2, f2)
 	if !check(r, r2) {
 		t.Error()
 		fmt.Println("r: ", r, r2)
