@@ -10,7 +10,7 @@ import (
 )
 
 func check_diff(x, y float64) bool {
-	const acc float64 = 1e-2 // accuracy
+	const acc float64 = 1e-8 // accuracy
 	var d float64
 	if x >= y {
 		d = x - y
@@ -51,9 +51,7 @@ func TestRgb2AnyRoundtrip(t *testing.T) {
 					x, y, z := f[i][0](r0, g0, b0)
 					r1, g1, b1 := f[i][1](x, y, z)
 					if !(check_diff(r0, r1) && check_diff(g0, g1) && check_diff(b0, b1)) {
-						t.Errorf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f\n", r0, g0, b0, r1, g1, b1)
-						// t.Logf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f", r0, g0, b0, r1, g1, b1)
-						// fmt.Printf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f\n", r0, g0, b0, r1, g1, b1)
+						t.Fatalf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f\n", r0, g0, b0, r1, g1, b1)
 					}
 				}
 			}

@@ -4,7 +4,7 @@
 
 package colorspace
 
-// Rgb2Ycbcr converts sRGB to Y'CbCr Luma + Chroma. 
+// Rgb2Ycbcr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. [5][6]
 func Rgb2Ycbcr(r, g, b float64) (y, cb, cr float64) {
 	y = 65.481*r + 128.553*g + 24.966*b + 16
 	cb = -37.797*r - 74.203*g + 112.0*b + 128
