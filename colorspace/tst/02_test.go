@@ -45,9 +45,10 @@ func TestRgb2AnyRoundtrip(t *testing.T) {
 
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)
-		for r0 := 0.0; r0 < 1.0; r0 += 0.01 {
-			for g0 := 0.0; g0 < 1.0; g0 += 0.01 {
-				for b0 := 0.0; b0 < 1.0; b0 += 0.01 {
+		step := 1.0/256
+		for r0 := 0.0; r0 <= 1.0; r0 += step {
+			for g0 := 0.0; g0 < 1.0; g0 += step {
+				for b0 := 0.0; b0 < 1.0; b0 += step {
 					x, y, z := f[i][0](r0, g0, b0)
 					r1, g1, b1 := f[i][1](x, y, z)
 					if !(check_diff(r0, r1) && check_diff(g0, g1) && check_diff(b0, b1)) {
