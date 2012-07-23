@@ -7,10 +7,11 @@ package colorspace
 import (
 	"fmt"
 	"testing"
+	"math"
 )
 
 func check_diff(x, y float64) bool {
-	const acc float64 = 1e-8 // accuracy
+	const acc float64 = 1e-12 // accuracy
 	var d float64
 	if x >= y {
 		d = x - y
@@ -42,20 +43,28 @@ func TestRgb2AnyRoundtrip(t *testing.T) {
 		{Rgb2Ypbpr, Ypbpr2Rgb},
 		{Rgb2Yuv, Yuv2Rgb},
 		{Rgb2Ycbcr, Ycbcr2Rgb}}
-
+	maxSqErr := 0.0
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)
-		step := 1.0/256
+		step := 1.0/2048
 		for r0 := 0.0; r0 <= 1.0; r0 += step {
 			for g0 := 0.0; g0 < 1.0; g0 += step {
 				for b0 := 0.0; b0 < 1.0; b0 += step {
 					x, y, z := f[i][0](r0, g0, b0)
 					r1, g1, b1 := f[i][1](x, y, z)
 					if !(check_diff(r0, r1) && check_diff(g0, g1) && check_diff(b0, b1)) {
-						t.Fatalf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f\n", r0, g0, b0, r1, g1, b1)
+						t.Errorf("r0, g0, b0 = %f, %f, %f   r1, g1, b1 = %f, %f, %f\n", r0, g0, b0, r1, g1, b1)
+					}
+					dr := (r0-r1)*(r0-r1)
+					dg := (g0-g1)*(g0-g1)
+					db := (b0-b1)*(b0-b1)
+					d:= dr+dg+db
+					if d > maxSqErr {
+						maxSqErr = d
 					}
 				}
 			}
 		}
 	}
+	fmt.Println("maxErr = ", math.Pow(maxSqErr, 0.5))
 }
