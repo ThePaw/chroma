@@ -1,0 +1,10 @@
+02_test.go:
+PASS
+ok  	chroma/white	0.006s
+accuracy better than 1e-5
+
+
+03_test.go:
+PASS
+ok  	chroma/white	0.022s
+accuracy better than 1e-6

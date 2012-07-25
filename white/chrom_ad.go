@@ -108,16 +108,3 @@ func ChromAd(xs, ys, zs, xws, yws, zws, xwd, ywd, zwd float64, method uint8) (xd
 
 	return
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
