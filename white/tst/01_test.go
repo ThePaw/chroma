@@ -123,7 +123,7 @@ func TestTemp(t *testing.T) {
 	fmt.Println(temp, " K:   RGBref:", r2, g2, b2)
 	fmt.Println(temp, " K:   RGBout:", rOut, gOut, bOut)
 
-//	This test produced images in testresults/1
+	// This test produced images in testresults/1
 	r, g, b = 1.0000, 0.6636, 0.3583
 	fmt.Println("Test against Rawtherapee: 4000 K")
 	temp = 4000.0
@@ -131,6 +131,5 @@ func TestTemp(t *testing.T) {
 	rmul, gmul, bmul = xyz2mul(x, y, z, green, false)
 	rOut, gOut, bOut = mul2RGB(r, g, b, rmul, gmul, bmul)
 	fmt.Println(temp, " K:   RGBout:", rOut, gOut, bOut)
-
 
 }

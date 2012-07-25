@@ -25,7 +25,7 @@ func daylight_spect(wavelength, m1, m2, temp float64) float64 {
 	return s0[wlm] + m1*s1[wlm] + m2*s2[wlm]
 }
 
-// spectral data for Daylight direct Sun: I have choose 5300K beacuse Nikon=5200K, Olympus=5300K, Panasonic=5500K, Leica=5400K, Minolta=5100K
+// spectral data for Daylight direct Sun: I have chosen 5300K beacuse Nikon=5200K, Olympus=5300K, Panasonic=5500K, Leica=5400K, Minolta=5100K
 func daylight5300_spect(wavelength, m1, m2, temp float64) float64 {
 	var val = [97]float64{24.82, 26.27, 27.72, 28.97, 30.22, 29.71, 29.19, 31.95, 34.71, 45.49, 56.26, 59.97, 63.68, 65.30, 66.92, 65.39, 63.86, 72.59, 81.32, 87.53, 93.73, 95.15, 96.56, 96.55, 96.54, 98.13, 99.73, 97.70, 95.66, 97.19, 98.72,
 		98.90, 99.08, 98.98, 98.87, 101.13, 103.39, 102.48, 101.57, 102.14, 102.71, 101.36, 100.00, 98.71, 97.42, 97.81, 98.21, 95.20, 92.20, 93.92, 95.63, 96.15, 96.67, 96.34, 96.01, 94.21, 92.41, 93.58, 94.74, 93.05, 91.36, 92.29,
@@ -36,7 +36,7 @@ func daylight5300_spect(wavelength, m1, m2, temp float64) float64 {
 	return val[wlm]
 }
 
-//spectral data for Daylight Cloudy: I have choose 6200K beacuse Nikon=6000K, Olympus=6000K, Panasonic=6200K, Leica=6400K, Minolta=6500K
+//spectral data for Daylight Cloudy: I have chosen 6200K beacuse Nikon=6000K, Olympus=6000K, Panasonic=6200K, Leica=6400K, Minolta=6500K
 func cloudy6200_spect(wavelength, m1, m2, temp float64) float64 {
 	var val = [97]float64{39.50, 40.57, 41.63, 43.85, 46.08, 45.38, 44.69, 47.20, 49.71, 63.06, 76.41, 80.59, 84.77, 85.91, 87.05, 84.14, 81.23, 90.29, 99.35, 105.47, 111.58, 112.23, 112.87, 111.74, 110.62, 111.41, 112.20, 108.98, 105.76, 106.32,
 		106.89, 106.34, 105.79, 104.62, 103.45, 105.09, 106.72, 105.24, 103.76, 103.75, 103.75, 101.87, 100.00, 98.29, 96.58, 96.46, 96.34, 92.85, 89.37, 90.25, 91.12, 91.06, 90.99, 90.17, 89.35, 87.22, 85.10, 85.48, 85.85,

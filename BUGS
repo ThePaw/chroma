@@ -1,4 +1,6 @@
 # Unresolved bugs list.
 
-chroma/colorspace/ycbcr.go: Ycbcr2Rgb fails test
+chroma/colorspace/ycbcr.go: Ycbcr2Rgb() test fails 
+chroma/white/chrom_ad.go: ChromAd() test fails
+
 
