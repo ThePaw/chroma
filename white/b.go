@@ -4,19 +4,9 @@
 
 package white
 
-/*
-
- s/ /, /g 	
-
-remove  func B_B...()  first!
-
-m := [3][3]float64{
-		{xx},
-		{xx},
-		{xx}}
-*/
-
 // B illuminant conversion functions
+// Standard Illuminant B is generally similar to D50 and a 5000 K blackbody radiator (actually closer to 4871 K).
+
 // B_A functions
 func B_A_Bradford(xs, ys, zs float64) (xd, yd, zd float64) {
 	m := [3][3]float64{

@@ -5,6 +5,7 @@
 package white
 
 // A illuminant conversion functions
+// Standard Illuminant A is, by definition, the same as a blackbody radiator of temperature 2856 K.
 // A_B functions
 func A_B_Bradford(xs, ys, zs float64) (xd, yd, zd float64) {
 	m := [3][3]float64{

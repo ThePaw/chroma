@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// Attention: This test took 195196.846s on Intel® Core™2 CPU 6600 @ 2.40GHz
 package colorspace
 
 import (

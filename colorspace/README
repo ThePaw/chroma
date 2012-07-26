@@ -1,6 +1,5 @@
-Colorspace conversion
-
-Supported colorspaces:
+# Colorspace conversion
+# Supported colorspaces:
 
 'RGB' 	sRGB IEC 61966-2-1
 'YPbPr' 	Luma (ITU-R BT.601) + Chroma

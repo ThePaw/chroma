@@ -22,6 +22,7 @@ func Ycbcr2Rgb(y, cb, cr float64) (r, g, b float64) {
 	b = 0.00456621004566210107*y + 0.00791071623355474145*cb + 1.1977497040190077e-08*cr
 	return
 }
+
 /*
 // Rgb2Ycbcr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. 
 func Rgb2Ycbcr(r, g, b float64) (y, cb, cr float64) {
@@ -42,4 +43,3 @@ func Ycbcr2Rgb(y, cb, cr float64) (r, g, b float64) {
 	return
 }
 */
-

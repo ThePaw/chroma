@@ -1,0 +1,5 @@
+02_test.go
+8589934592 colors (11 bits per channel) regularly spaced
+maxErr =  3.316492304977368e-14
+PASS
+ok  	chroma/colorspace	195196.846s
