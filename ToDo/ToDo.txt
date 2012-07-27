@@ -1,0 +1,12 @@
+# Re-implement Delta_E_CMC and Delta_E_2000 according to Lindbloom.
+
+# Document all functions. Start always with function name.
+
+# type Color3 struct {
+	X, Y, Z float64
+}
+
+func DeltaE(l1, a1, b1, l2, a2, b2 float64) (delta float64) {
+--> func DeltaE(c1, c2 Color3) (delta float64) {
+
+# scaled uint8, uint16 versions of the library to use standard image/color Color interface !!
