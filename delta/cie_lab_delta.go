@@ -1,6 +1,4 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 // Color delta / comparison math. 
 // Functions to calculate color differences. All of them refers to the CIE-L*ab color space.

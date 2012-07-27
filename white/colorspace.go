@@ -1,6 +1,8 @@
-// Color space conversion matrices
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 package white
+
+// Color space conversion matrices
 
 // Color space conversion to/from XYZ; color spaces adapted to D65
 // CIE 1931 XYZ color space

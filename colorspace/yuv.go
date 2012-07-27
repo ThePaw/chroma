@@ -1,3 +1,5 @@
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
+
 package colorspace
 
 // Convert sRGB to NTSC/PAL Y'UV Luma + Chroma

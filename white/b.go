@@ -1,6 +1,7 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
+
+// B illuminant conversion functions
+// Standard Illuminant B is generally similar to D50 and a 5000 K blackbody radiator (actually closer to 4871 K).
 
 package white
 

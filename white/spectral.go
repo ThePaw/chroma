@@ -1,10 +1,9 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 // Spectral Power Distribution of a CIE D-Illuminant
 // The relative spectral power distribution of a CIE D-Illuminant is computed from its chromaticity coordinates. 
 // The chromaticity coordinates may be computed from the correlated color temperature.
+// Ref.: [28] 
 
 package white
 

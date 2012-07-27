@@ -1,9 +1,7 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 // Color delta / comparison math. 
-// Riemersma, T. 2012: CompuPhase: Colour metric. http://www.compuphase.com/cmetric.htm
+// Ref: [29]
 
 package delta
 

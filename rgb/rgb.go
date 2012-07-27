@@ -1,8 +1,7 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// Convert different RGB colorspaces to CIE XYZ and back. 
+// Convert different RGB colorspaces with their native illuminators to CIE XYZ and back. 
+
 package rgb
 
 // Converts from Adobe RGB (1998) with D65 illuminator to CIE XYZ. 

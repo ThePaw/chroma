@@ -1,12 +1,10 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
+
+// Auxilliary functions
 
 package white
 
 import "math"
-
-// Auxilliary functions
 
 // Maximum of a, b, and c
 func max3(a, b, c float64) (y float64) {

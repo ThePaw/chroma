@@ -1,0 +1,5 @@
+01_test.go
+step: 1/255
+maxErr =  3.490672685435463e-07
+PASS
+ok  	chroma/rgb	67.807s

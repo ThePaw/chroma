@@ -1,11 +1,9 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 package white
 
 // T2Xy converts from the correlated color temperature of a CIE D-illuminant to the chromaticity of that D-illuminant. 
-// Thanks to Bruce Lindbloom
+// Ref: [25]
 // http://www.brucelindbloom.com/Eqn_T_to_xy.html
 func T2Xy(t float64) (x, y float64) {
 

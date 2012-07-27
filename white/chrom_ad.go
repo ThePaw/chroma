@@ -1,8 +1,4 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package white
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 // The chromatic adaptation algorithms on this web site may all be implemented as a linear transformation of a 
 // source color (XS, YS, ZS) into a destination color (XD, YD, ZD) by a linear transformation [M] 
@@ -11,8 +7,9 @@ package white
 // Transform from XYZ into a cone response domain, (ρ, γ, β).
 // Scale the vector components by factors dependent upon both the source and destination reference whites.
 // Transform from (ρ, γ, β) back to XYZ using the inverse transform of step 1.
-// Thanks to Bruce Lindbloom
-// http://www.brucelindbloom.com
+// Ref.: [26]
+
+package white
 
 // Bradford
 func bradford() (ma, maInv [3][3]float64) {

@@ -1,10 +1,9 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
+
+// E illuminant conversion functions
 
 package white
 
-// E illuminant conversion functions
 // E_A functions
 func E_A_Bradford(xs, ys, zs float64) (xd, yd, zd float64) {
 	m := [3][3]float64{

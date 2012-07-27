@@ -17,5 +17,15 @@ References
 [15] Wikipedia: LMS color space. http://en.wikipedia.org/wiki/LMS_color_space
 [16] Wikipedia: CIECAM02. http://en.wikipedia.org/wiki/CIECAM02
 [17] Wikipedia: LMS color space. http://en.wikipedia.org/wiki/LMS_color_space
-[18] Sharma G., Wu W., Dalal E. N. 2005: The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations. Color Research and Application, vol. 30. No. 1, February 2005.
-
+[18] Sharma G., Wu W., Dalal E. N. 2005: The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations. Color Research and Application, 30 (1): 21–30.
+[19] Lindbloom, B.J. 2007: Useful Color Equations. http://www.brucelindbloom.com/Math.html
+[20] Lindbloom, B.J. 2003: Delta E (CIE 1976). http://www.brucelindbloom.com/Eqn_DeltaE_CIE76.html
+[21] Lindbloom, B.J. 2011: Delta E (CIE 1994). http://www.brucelindbloom.com/Eqn_DeltaE_CIE94.html
+[22] Lindbloom, B.J. 2009: Delta E (CIE 2000). http://www.brucelindbloom.com/Eqn_DeltaE_CIE2000.html
+[23] Lindbloom, B.J. 2009: Delta E (CMC). http://www.brucelindbloom.com/Eqn_DeltaE_CMC.html
+[24] Lindbloom, B.J. 2011: RGB/XYZ Matrices. http://www.brucelindbloom.com/Eqn_RGB_XYZ_Matrix.html
+[25] Lindbloom, B.J. 2003: T to xy. http://www.brucelindbloom.com/Eqn_T_to_xy.html
+[26] Lindbloom, B.J. 2009: Chromatic Adaptation. http://www.brucelindbloom.com/Eqn_ChromAdapt.html
+[27] Lindbloom, B.J. 2008: XYZ to Correlated Color Temperature. http://www.brucelindbloom.com/Eqn_XYZ_to_T.html
+[28] Lindbloom, B.J. 2007: Spectral Power Distribution of a CIE D-Illuminant. http://www.brucelindbloom.com/Eqn_DIlluminant.html
+[29]  Riemersma, T. 2012: CompuPhase: Colour metric. http://www.compuphase.com/cmetric.htm

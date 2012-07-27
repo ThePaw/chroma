@@ -1,8 +1,7 @@
-// Copyright 2011 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// Attention: This test took 195196.846s on Intel® Core™2 CPU 6600 @ 2.40GHz
+// Attention: This test took 195196.846s on Intel® Core™2 CPU 6600 @ 2.40GHz for 12-bit depth (step = 1.0/2048)
+
 package colorspace
 
 import (
@@ -12,7 +11,7 @@ import (
 )
 
 func check_diff(x, y float64) bool {
-	const acc float64 = 1e-12 // accuracy
+	const acc float64 = 1e-3// accuracy
 	var d float64
 	if x >= y {
 		d = x - y
@@ -29,7 +28,6 @@ func check_diff(x, y float64) bool {
 
 func TestRgb2AnyRoundtrip(t *testing.T) {
 	type fn func(r, g, b float64) (x, y, z float64)
-	nFunc := 14
 	f := [][]fn{{Rgb2Xyz, Xyz2Rgb},
 		{Rgb2Lms, Lms2Rgb},
 		{Rgb2Lch, Lch2Rgb},
@@ -44,10 +42,11 @@ func TestRgb2AnyRoundtrip(t *testing.T) {
 		{Rgb2Ypbpr, Ypbpr2Rgb},
 		{Rgb2Yuv, Yuv2Rgb},
 		{Rgb2Ycbcr, Ycbcr2Rgb}}
+	nFunc := len(f)
 	maxSqErr := 0.0
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)
-		step := 1.0/2048
+		step := 1.0/255
 		for r0 := 0.0; r0 <= 1.0; r0 += step {
 			for g0 := 0.0; g0 < 1.0; g0 += step {
 				for b0 := 0.0; b0 < 1.0; b0 += step {

@@ -1,11 +1,10 @@
-// Copyright 2012 The Chroma Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package white
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
 // A illuminant conversion functions
 // Standard Illuminant A is, by definition, the same as a blackbody radiator of temperature 2856 K.
+
+package white
+
 // A_B functions
 func A_B_Bradford(xs, ys, zs float64) (xd, yd, zd float64) {
 	m := [3][3]float64{
