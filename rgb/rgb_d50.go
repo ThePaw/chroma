@@ -1,10 +1,13 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// Convert different RGB colorspaces with D50 illuminator to CIE XYZ and back. 
+// Convert natively non-D50 RGB colorspaces with D50 illuminator to CIE XYZ and back. 
+// Bradford adaptation was used to calculate D50 matrices from colorspaces' native illuminators. 
+// RGB values must be linear and in the nominal range [0.0, 1.0]. 
+// Ref.: [24][30][31]
 
 package rgb
 
-// Converts from Adobe RGB (1998) with D50 illuminator to CIE XYZ. 
+// Adobe2Xyz_D50 converts from Adobe RGB (1998) with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Adobe2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6097559, 0.2052401, 0.1492240},
@@ -16,7 +19,7 @@ func Adobe2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Adobe RGB(1998) with D50 illuminator. 
+// Xyz2Adobe_D50 converts from CIE XYZ to Adobe RGB(1998) with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Adobe_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.9624274, -0.6105343, -0.3413404},
@@ -28,7 +31,7 @@ func Xyz2Adobe_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Apple RGB with D50 illuminator to CIE XYZ. 
+// Apple2Xyz_D50 converts from Apple RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Apple2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4755678, 0.3396722, 0.1489800},
@@ -40,7 +43,7 @@ func Apple2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Apple RGB with D50 illuminator. 
+// Xyz2Apple_D50 converts from CIE XYZ to Apple RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Apple_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.8510695, -1.3605261, -0.4708281},
@@ -52,7 +55,7 @@ func Xyz2Apple_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Bruce RGB with D50 illuminator to CIE XYZ. 
+// Bruce2Xyz_D50 converts from Bruce RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Bruce2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4941816, 0.3204834, 0.1495550},
@@ -64,7 +67,7 @@ func Bruce2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Bruce RGB with D50 illuminator. 
+// Xyz2Bruce_D50 converts from CIE XYZ to Bruce RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Bruce_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.6502856, -1.2014485, -0.4289936},
@@ -76,7 +79,7 @@ func Xyz2Bruce_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from CIE RGB with D50 illuminator to CIE XYZ. 
+// Cie2Xyz_D50 converts from CIE RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Cie2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4868870, 0.3062984, 0.1710347},
@@ -88,7 +91,7 @@ func Cie2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to CIE RGB with D50 illuminator. 
+// Xyz2Cie converts from CIE XYZ to CIE RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Cie(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.3638081, -0.8676030, -0.4988161},
@@ -100,7 +103,7 @@ func Xyz2Cie(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  NTSC RGB with D50 illuminator to CIE XYZ. 
+// Ntsc2Xyz_D50 converts from  NTSC RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Ntsc2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6343706, 0.1852204, 0.1446290},
@@ -112,7 +115,7 @@ func Ntsc2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to NTSC RGB with D50 illuminator. 
+// Xyz2Ntsc_D50 converts from CIE XYZ to NTSC RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Ntsc_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.8464881, -0.5521299, -0.2766458},
@@ -124,7 +127,7 @@ func Xyz2Ntsc_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  PAL/SECAM RGB with D50 illuminator to CIE XYZ. 
+// Pal2Xyz_D50 converts from  PAL/SECAM RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Pal2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4552773, 0.3675500, 0.1413926},
@@ -136,7 +139,7 @@ func Pal2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to PAL/SECAM RGB with D50 illuminator. 
+// Xyz2Pal_D50 converts from CIE XYZ to PAL/SECAM RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Pal_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.9603944, -1.4678519, -0.4685105},
@@ -148,7 +151,7 @@ func Xyz2Pal_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  SMPTE-C RGB with D50 illuminator to CIE XYZ. 
+// SmpteC2Xyz_D50 converts from  SMPTE-C RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func SmpteC2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4163290, 0.3931464, 0.1547446},
@@ -160,7 +163,7 @@ func SmpteC2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to SMPTE-C RGB with D50 illuminator. 
+// Xyz2SmpteC_D50 converts from CIE XYZ to SMPTE-C RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2SmpteC_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{3.3921940, -1.8264027, -0.5385522},
@@ -172,7 +175,7 @@ func Xyz2SmpteC_D50(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  sRGB with D50 illuminator to CIE XYZ. 
+// Srgb2Xyz_D50 converts from  sRGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Srgb2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4360747, 0.3850649, 0.1430804},
@@ -184,7 +187,7 @@ func Srgb2Xyz_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to sRGB with D50 illuminator. 
+// Xyz2Srgb_D50 converts from CIE XYZ to sRGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Srgb_D50(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{3.1338561, -1.6168667, -0.4906146},

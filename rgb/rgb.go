@@ -1,10 +1,12 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// Convert different RGB colorspaces with their native illuminators to CIE XYZ and back. 
+// Convert different RGB colorspaces with their native illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. to CIE XYZ and back. 
+// RGB values must be linear and in the nominal range [0.0, 1.0]. 
+// Ref.: [24][30][31]
 
 package rgb
 
-// Converts from Adobe RGB (1998) with D65 illuminator to CIE XYZ. 
+// Adobe2Xyz converts from Adobe RGB (1998) with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Adobe2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.5767309, 0.1855540, 0.1881852},
@@ -16,7 +18,7 @@ func Adobe2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Adobe RGB(1998) with D65 illuminator. 
+//  converts from CIE XYZ to Adobe RGB(1998) with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Adobe(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.0413690, -0.5649464, -0.3446944},
@@ -28,7 +30,7 @@ func Xyz2Adobe(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Apple RGB with D65 illuminator to CIE XYZ. 
+// Apple2Xyz converts from Apple RGB with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Apple2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4497288, 0.3162486, 0.1844926},
@@ -40,7 +42,7 @@ func Apple2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Apple RGB with D65 illuminator. 
+// Xyz2Apple converts from CIE XYZ to Apple RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Apple(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.9515373, -1.2894116, -0.4738445},
@@ -52,7 +54,7 @@ func Xyz2Apple(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Best RGB with D50 illuminator to CIE XYZ. 
+// Best2Xyz converts from Best RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Best2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6326696, 0.2045558, 0.1269946},
@@ -64,7 +66,7 @@ func Best2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Best RGB with D50 illuminator. 
+// Xyz2Best converts from CIE XYZ to Best RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Best(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.7552599, -0.4836786, -0.2530000},
@@ -76,7 +78,7 @@ func Xyz2Best(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Beta RGB with D50 illuminator to CIE XYZ. 
+// Beta2Xyz converts from Beta RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Beta2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6712537, 0.1745834, 0.1183829},
@@ -88,7 +90,7 @@ func Beta2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Beta RGB with D50 illuminator. 
+// Xyz2Beta converts from CIE XYZ to Beta RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Beta(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.6832270, -0.4282363, -0.2360185},
@@ -100,7 +102,7 @@ func Xyz2Beta(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from Bruce RGB with D65 illuminator to CIE XYZ. 
+// Bruce2Xyz converts from Bruce RGB with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Bruce2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4674162, 0.2944512, 0.1886026},
@@ -112,7 +114,7 @@ func Bruce2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Bruce RGB with D65 illuminator. 
+// Xyz2Bruce converts from CIE XYZ to Bruce RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Bruce(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.7454669, -1.1358136, -0.4350269},
@@ -124,7 +126,7 @@ func Xyz2Bruce(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from CIE RGB with E illuminator to CIE XYZ. 
+// CieE2Xyz converts from CIE RGB with E illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func CieE2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4887180, 0.3106803, 0.2006017},
@@ -136,7 +138,7 @@ func CieE2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to CIE RGB with E illuminator. 
+// Xyz2CieE converts from CIE XYZ to CIE RGB with E illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2CieE(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.3706743, -0.9000405, -0.4706338},
@@ -148,7 +150,7 @@ func Xyz2CieE(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  ColorMatch RGB with D50 illuminator to CIE XYZ. 
+// ColorMatch2Xyz converts from  ColorMatch RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func ColorMatch2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.5093439, 0.3209071, 0.1339691},
@@ -160,7 +162,7 @@ func ColorMatch2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to ColorMatch RGB with D50 illuminator. 
+// Xyz2ColorMatch converts from CIE XYZ to ColorMatch RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2ColorMatch(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.6422874, -1.2234270, -0.3930143},
@@ -172,7 +174,7 @@ func Xyz2ColorMatch(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  Don RGB-4 with D50 illuminator to CIE XYZ. 
+// Don2Xyz converts from  Don RGB-4 with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Don2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6457711, 0.1933511, 0.1250978},
@@ -184,7 +186,7 @@ func Don2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Don RGB-4 with D50 illuminator. 
+// Xyz2Don converts from CIE XYZ to Don RGB-4 with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Don(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.7603902, -0.4881198, -0.2536126},
@@ -196,7 +198,7 @@ func Xyz2Don(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  ECI RGB with D50 illuminator to CIE XYZ. 
+// Eci2Xyz converts from  ECI RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Eci2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6502043, 0.1780774, 0.1359384},
@@ -208,7 +210,7 @@ func Eci2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to ECI RGB with D50 illuminator. 
+// Xyz2Eci converts from CIE XYZ to ECI RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Eci(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.7827618, -0.4969847, -0.2690101},
@@ -220,7 +222,7 @@ func Xyz2Eci(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  Ekta Space PS5 with D50 illuminator to CIE XYZ. 
+// EktaSpace2Xyz converts from  Ekta Space PS5 with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func EktaSpace2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.5938914, 0.2729801, 0.0973485},
@@ -232,7 +234,7 @@ func EktaSpace2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Ekta Space PS5 with D50 illuminator. 
+// Xyz2EktaSpace converts from CIE XYZ to Ekta Space PS5 with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2EktaSpace(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{2.0043819, -0.7304844, -0.2450052},
@@ -244,7 +246,7 @@ func Xyz2EktaSpace(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  NTSC RGB with D50 illuminator to CIE XYZ. 
+// Ntsc2Xyz converts from  NTSC RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Ntsc2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.6068909, 0.1735011, 0.2003480},
@@ -256,7 +258,7 @@ func Ntsc2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to NTSC RGB with D50 illuminator. 
+// Xyz2Ntsc converts from CIE XYZ to NTSC RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Ntsc(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.9099961, -0.5324542, -0.2882091},
@@ -268,7 +270,7 @@ func Xyz2Ntsc(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  PAL/SECAM RGB with D65 illuminator to CIE XYZ. 
+// Pal2Xyz converts from  PAL/SECAM RGB with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Pal2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4306190, 0.3415419, 0.1783091},
@@ -280,7 +282,7 @@ func Pal2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to PAL/SECAM RGB with D65 illuminator. 
+// Xyz2Pal converts from CIE XYZ to PAL/SECAM RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Pal(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{3.0628971, -1.3931791, -0.4757517},
@@ -292,7 +294,7 @@ func Xyz2Pal(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  ProPhoto RGB with D50 illuminator to CIE XYZ. 
+// ProPhoto2Xyz converts from  ProPhoto RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func ProPhoto2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.7976749, 0.1351917, 0.0313534},
@@ -304,7 +306,7 @@ func ProPhoto2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to  ProPhoto RGB with D50 illuminator. 
+// Xyz2ProPhoto converts from CIE XYZ to  ProPhoto RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2ProPhoto(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.3459433, -0.2556075, -0.0511118},
@@ -316,7 +318,7 @@ func Xyz2ProPhoto(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  SMPTE-C RGB with D65 illuminator to CIE XYZ. 
+// SmpteC2Xyz converts from  SMPTE-C RGB with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func SmpteC2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.3935891, 0.3652497, 0.1916313},
@@ -328,7 +330,7 @@ func SmpteC2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to SMPTE-C RGB with D65 illuminator. 
+// Xyz2SmpteC converts from CIE XYZ to SMPTE-C RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2SmpteC(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{3.5053960, -1.7394894, -0.5439640},
@@ -340,7 +342,7 @@ func Xyz2SmpteC(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  sRGB with D65 illuminator to CIE XYZ. 
+// Srgb2Xyz converts from  sRGB with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func Srgb2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.4124564, 0.3575761, 0.1804375},
@@ -352,7 +354,7 @@ func Srgb2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to sRGB with D65 illuminator. 
+// Xyz2Srgb converts from CIE XYZ to sRGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2Srgb(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{3.2404542, -1.5371385, -0.4985314},
@@ -364,7 +366,7 @@ func Xyz2Srgb(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// Converts from  Wide Gamut RGB with D50 illuminator to CIE XYZ. 
+// WGamut2Xyz converts from  Wide Gamut RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
 func WGamut2Xyz(r, g, b float64) (x, y, z float64) {
 	m := [3][3]float64{
 		{0.7161046, 0.1009296, 0.1471858},
@@ -376,7 +378,7 @@ func WGamut2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Converts from CIE XYZ to Wide Gamut RGB with D50 illuminator. 
+// Xyz2WGamut converts from CIE XYZ to Wide Gamut RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func Xyz2WGamut(x, y, z float64) (r, g, b float64) {
 	m := [3][3]float64{
 		{1.4628067, -0.1840623, -0.2743606},

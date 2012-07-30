@@ -1,6 +1,10 @@
 // RGB Working Space, Reference White,  
 // RGB to XYZ [M]
 // XYZ to RGB [M]-1
+// In order to properly use the matrix [M], the RGB values must be linear and in the nominal range [0.0, 1.0]. In many cases, RGB values may first need conversion (for example, dividing by 255 and then raising them to a power).
+// Be careful that reference whites are used consistently. For example, sRGB is defined relative to a D65 reference white and ICC profiles are defined relative to a D50 reference white. Mismatched reference whites must be accounted for elsewhere, typically by using a chromatic adaptation algorithm.
+// The inverse matrix [M]-1 (i.e. the matrix converting XYZ to RGB) is computed by inverting matrix [M] above.
+
 
 // Adobe_RGB(1998), D65
 {0.5767309, 0.1855540, 0.1881852},	// RGB to XYZ
