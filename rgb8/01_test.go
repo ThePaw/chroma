@@ -9,7 +9,7 @@ import (
 )
 
 func check_diff(x, y uint8) bool {
-	const acc uint8 = 20// accuracy
+	const acc uint8 = 20 // accuracy
 	var d uint8
 	if x >= y {
 		d = x - y
@@ -21,12 +21,13 @@ func check_diff(x, y uint8) bool {
 	}
 	return true
 }
+
 // Test that a subset of RGB space can be converted to XYZ and back to within tolerance. 
 func TestRgb2RgbRoundtrip(t *testing.T) {
 	var (
-r0, g0, b0, step int
-r0w, g0w, b0w,  r1w, g1w, b1w uint8
-)
+		r0, g0, b0, step             int
+		r0w, g0w, b0w, r1w, g1w, b1w uint8
+	)
 	type fn func(r, g, b uint8) (x, y, z uint8)
 	f := [][]fn{
 		{Adobe2Xyz_D50, Xyz2Adobe_D50},
@@ -60,7 +61,7 @@ r0w, g0w, b0w,  r1w, g1w, b1w uint8
 		step = 1
 		for r0 = 0; r0 <= 255; r0 += step {
 			for g0 = 0; g0 <= 255; g0 += step {
-				for b0 = 0; b0 <= 255 ; b0 += step {
+				for b0 = 0; b0 <= 255; b0 += step {
 					r, g, b := uint8(r0), uint8(g0), uint8(b0)
 					x, y, z := f[i][0](r, g, b)
 					r1, g1, b1 := f[i][1](x, y, z)
@@ -68,13 +69,13 @@ r0w, g0w, b0w,  r1w, g1w, b1w uint8
 						fmt.Printf(" fn # %d: x, y, z = %d, %d, %d  \n", i, x, y, z)
 						t.Errorf(" fn # %d: r0, g0, b0 = %d, %d, %d   r1, g1, b1 = %d, %d, %d\n", i, r0, g0, b0, r1, g1, b1)
 					}
-				dr := (r - r1) * (r - r1)
+					dr := (r - r1) * (r - r1)
 					dg := (g - g1) * (g - g1)
 					db := (b - b1) * (b - b1)
 					d := dr + dg + db
 					if int(d) > maxSqErr {
-r0w, g0w, b0w = r, g, b
-r1w, g1w, b1w = r1, g1, b1
+						r0w, g0w, b0w = r, g, b
+						r1w, g1w, b1w = r1, g1, b1
 						maxSqErr = int(d)
 					}
 				}
@@ -85,4 +86,3 @@ r1w, g1w, b1w = r1, g1, b1
 	fmt.Println("RGB 0 = ", r0w, g0w, b0w)
 	fmt.Println("RGB 1 = ", r1w, g1w, b1w)
 }
-

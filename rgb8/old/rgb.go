@@ -6,7 +6,23 @@
 
 package rgb8
 
-func clip(x1, y1, z1 int) (x, y, z uint8) {
+// Converts from Adobe RGB with D65 illuminator to CIE XYZ. 
+func Adobe2Xyz(r, g, b uint8) (x, y, z uint8) {
+	m := [3][3]int{
+		{37796, 12160, 12332},
+		{19488, 41113, 4933},
+		{1771, 4632, 64953}}
+	r1 := int(r)
+	g1 := int(g)
+	b1 := int(b)
+	/*
+		x1 := (37796*r1 + 12160*g1 + 12332*b1 + 1<<15) >> 16
+		y1 := (19488*r1 + 41113*g1 + 4933*b1 + 1<<15) >> 16
+		z1 := (1771*r1 + 4632*g1 + 64953*b1 + 1<<15) >> 16
+	*/
+	x1 := (m[0][0]*r1 + m[0][1]*g1 + m[0][2]*b1 + 1<<15) >> 16
+	y1 := (m[1][0]*r1 + m[1][1]*g1 + m[1][2]*b1 + 1<<15) >> 16
+	z1 := (m[2][0]*r1 + m[2][1]*g1 + m[2][2]*b1 + 1<<15) >> 16
 	if x1 < 0 {
 		x1 = 0
 	} else if x1 > 255 {
@@ -23,23 +39,6 @@ func clip(x1, y1, z1 int) (x, y, z uint8) {
 		z1 = 255
 	}
 	x, y, z = uint8(x1), uint8(y1), uint8(z1)
-	return
-}
-
-func mMult(m [3][3]int, a, b, c int) (d, e, f int) {
-	d = (m[0][0]*a + m[0][1]*b + m[0][2]*c + 1<<15) >> 16
-	e = (m[1][0]*a + m[1][1]*b + m[1][2]*c + 1<<15) >> 16
-	f = (m[2][0]*a + m[2][1]*b + m[2][2]*c + 1<<15) >> 16
-	return
-}
-
-// Converts from Adobe RGB 0 with D65 illuminator to CIE XYZ. 
-func Adobe2Xyz(r, g, b uint8) (x, y, z uint8) {
-	m := [3][3]int{
-		{37796, 12160, 12332},
-		{19488, 41113, 4933},
-		{1771, 4632, 64953}}
-	x, y, z = clip(mMult(m, int(r), int(g), int(b)))
 	return
 }
 

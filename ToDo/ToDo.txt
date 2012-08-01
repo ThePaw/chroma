@@ -10,3 +10,25 @@ func DeltaE(l1, a1, b1, l2, a2, b2 float64) (delta float64) {
 --> func DeltaE(c1, c2 Color3) (delta float64) {
 
 # scaled uint8, uint16 versions of the library to use standard image/color Color interface !!
+
+# rewrite uint8 versions according to this example:
+func clip(x int) uint8 {
+        if x < 0 {
+                return 0
+        }
+        if x > 255 {
+                return 255
+        }
+        return uint8(x)
+}
+
+// Adobe2Xyz converts from Adobe RGB with D65 illuminator to CIE XYZ.
+func Adobe2Xyz(r, g, b uint8) (x, y, z uint8) {
+        r1 := int(r)
+        g1 := int(g)
+        b1 := int(b)
+        x1 := (37796*r1 + 12160*g1 + 12332*b1 + 1<<15) >> 16
+        y1 := (19488*r1 + 41113*g1 + 4933*b1 + 1<<15) >> 16
+        z1 := (1771*r1 + 4632*g1 + 64953*b1 + 1<<15) >> 16
+        return clip(x1), clip(y1), clip(z1)
+}
