@@ -8,7 +8,6 @@
 // so be careful while adjusting 'step' below.
 // Also, you then should have to run 'go test' with '-test.timeout t' flag.
 
-
 package rgb
 
 import (
@@ -18,7 +17,7 @@ import (
 )
 
 func check_diff(x, y float64) bool {
-	const acc float64 = 1e-3// accuracy
+	const acc float64 = 1e-3 // accuracy
 	var d float64
 	if x >= y {
 		d = x - y

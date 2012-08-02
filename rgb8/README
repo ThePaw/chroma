@@ -1,0 +1,21 @@
+# Conversion RGB -> XYZ and back
+# Channels scaled to [0, 255]
+# Supported RGB colorspaces and their reference white:
+
+Adobe RGB (1998) D65
+Apple RGB D65
+Best RGB D50
+Beta RGB D50
+Bruce RGB D65
+CIE RGB E
+ColorMatch RGB D50
+Don RGB 4 D50
+ECI RGB D50
+Ekta Space PS5 D50
+NTSC RGB C
+PAL/SECAM RGB D65
+ProPhoto RGB D50
+SMPTE-C RGB D65
+sRGB D65
+Wide Gamut RGB D50
+
