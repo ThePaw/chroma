@@ -24,8 +24,8 @@ func labInv(x float64) (y float64) {
 	return
 }
 
-// Lab2Xyz converts a CIE L*ab triple to a CIE XYZ triple.
-func Lab2Xyz(l, a, b float64) (x, y, z float64) {
+// LabToXYZ converts a CIE L*ab triple to a CIE XYZ triple.
+func LabToXYZ(l, a, b float64) (x, y, z float64) {
 	l = (l + 16) / 116
 	a = l + a/500
 	b = l - b/200
@@ -35,8 +35,8 @@ func Lab2Xyz(l, a, b float64) (x, y, z float64) {
 	return
 }
 
-// Xyz2Lab converts an XYZ triple to a CIE L*ab triple.
-func Xyz2Lab(x, y, z float64) (l, a, b float64) {
+// XYZToLab converts an XYZ triple to a CIE L*ab triple.
+func XYZToLab(x, y, z float64) (l, a, b float64) {
 	x /= wX
 	y /= wY
 	z /= wZ

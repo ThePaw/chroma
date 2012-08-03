@@ -26,27 +26,27 @@ func check_diff(x, y float64) bool {
 
 // Test that a subset of RGB space can be converted to XYZ and back to within tolerance. 
 
-func TestRgb2AnyRoundtrip(t *testing.T) {
+func TestRGBToAnyRoundtrip(t *testing.T) {
 	type fn func(r, g, b float64) (x, y, z float64)
-	f := [][]fn{{Rgb2Xyz, Xyz2Rgb},
-		{Rgb2Lms, Lms2Rgb},
-		{Rgb2Lch, Lch2Rgb},
-		{Rgb2Hsi, Hsi2Rgb},
-		{Rgb2Hsl, Hsl2Rgb},
-		{Rgb2Hsv, Hsv2Rgb},
-		{Rgb2Jycbcr, Jycbcr2Rgb},
-		{Rgb2Lab, Lab2Rgb},
-		{Rgb2Luv, Luv2Rgb},
-		{Rgb2Ydbdr, Ydbdr2Rgb},
-		{Rgb2Yiq, Yiq2Rgb},
-		{Rgb2Ypbpr, Ypbpr2Rgb},
-		{Rgb2Yuv, Yuv2Rgb},
-		{Rgb2Ycbcr, Ycbcr2Rgb}}
+	f := [][]fn{{RGBToXYZ, XYZToRGB},
+		{RGBToLMS, LMSToRGB},
+		{RGBToLch, LchToRGB},
+		{RGBToHSI, HSIToRGB},
+		{RGBToHSL, HSLToRGB},
+		{RGBToHSV, HSVToRGB},
+		{RGBToJPEG_YCbCr, JPEG_YCbCrToRGB},
+		{RGBToLab, LabToRGB},
+		{RGBToLuv, LuvToRGB},
+		{RGBToYDbDr, YDbDrToRGB},
+		{RGBToYIQ, YIQToRGB},
+		{RGBToYPbPr, YPbPrToRGB},
+		{RGBToYUV, YUVToRGB},
+		{RGBToYCbCr, YCbCrToRGB}}
 	nFunc := len(f)
 	maxSqErr := 0.0
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)
-		step := 1.0/255
+		step := 1.0/32
 		for r0 := 0.0; r0 <= 1.0; r0 += step {
 			for g0 := 0.0; g0 < 1.0; g0 += step {
 				for b0 := 0.0; b0 < 1.0; b0 += step {

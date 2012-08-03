@@ -10,7 +10,7 @@ import "math"
 //   H = polar hue angle         (0 <= H < 360),
 //   S = 1 - min(R',G',B')/I     (0 <= S <= 1),
 //   I = (R'+G'+B')/3            (0 <= I <= 1).
-func Rgb2Hsi(r, g, b float64) (h, s, i float64) {
+func RGBToHSI(r, g, b float64) (h, s, i float64) {
 	alpha := 0.5 * (2*r - g - b)
 	beta := 0.866025403784439 * (g - b)
 
@@ -35,7 +35,7 @@ func Rgb2Hsi(r, g, b float64) (h, s, i float64) {
 //    0 <= S <= 1,
 //    0 <= I <= 1. 
 // The output sRGB values are scaled between 0 and 1.
-func Hsi2Rgb(h, s, i float64) (r, g, b float64) {
+func HSIToRGB(h, s, i float64) (r, g, b float64) {
 	h -= 360 * math.Floor(h/360)
 
 	if h < 120 {

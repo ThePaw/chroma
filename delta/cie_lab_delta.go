@@ -77,6 +77,7 @@ func DeltaE94(l1, a1, b1, l2, a2, b2, wL, wC, wH float64) (delta float64) {
 	return
 }
 
+/* bug
 // Delta E 2000
 func DeltaE00(l1, a1, b1, l2, a2, b2, wL, wC, wH float64) (delta float64) {
 	// l1, a1, b1          //Color #1 lab values
@@ -186,3 +187,4 @@ func DeltaCMC(l1, a1, b1, l2, a2, b2, wL, wC, wH float64) (delta float64) {
 
 	return
 }
+*/

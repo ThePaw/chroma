@@ -2,8 +2,8 @@
 
 package colorspace
 
-// Yxy2Xyz converts an Yxy triple to an XYZ triple.
-func Yxy2Xyz(yY, x, y float64) (float64, float64, float64) {
+// YxyToXYZ converts an Yxy triple to an XYZ triple.
+func YxyToXYZ(yY, x, y float64) (float64, float64, float64) {
 	//yY from 0 to 100
 	//x from 0 to 1
 	//y from 0 to 1
@@ -15,8 +15,8 @@ func Yxy2Xyz(yY, x, y float64) (float64, float64, float64) {
 	return xx, yy, zz
 }
 
-// Xyz2Yxy converts an XYZ triple to an Yxy triple.
-func Xyz2Yxy(xx, yy, zz float64) (float64, float64, float64) {
+// XYZToYxy converts an XYZ triple to an Yxy triple.
+func XYZToYxy(xx, yy, zz float64) (float64, float64, float64) {
 	//X from 0 to 95.047       Observer. = 2°, Illuminant = D65
 	//Y from 0 to 100.000
 	//Z from 0 to 108.883

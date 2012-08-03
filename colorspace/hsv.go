@@ -12,7 +12,7 @@ import (
 //    0 <= S <= 1,
 //    0 <= V <= 1. 
 // The output sRGB values are scaled between 0 and 1.
-func Hsv2Rgb(h, s, v float64) (r, g, b float64) {
+func HSVToRGB(h, s, v float64) (r, g, b float64) {
 	c := s * v
 	min := v - c
 
@@ -71,7 +71,7 @@ func Hsv2Rgb(h, s, v float64) (r, g, b float64) {
 // S = C/V                   (0 <= S <= 1),
 // V = max(R',G',B')         (0 <= V <= 1),
 // where C = max(R',G',B') - min(R',G',B'). 
-func Rgb2Hsv(r, g, b float64) (h, s, v float64) {
+func RGBToHSV(r, g, b float64) (h, s, v float64) {
 	max := max3(r, g, b)
 	min := min3(r, g, b)
 	c := max - min

@@ -12,7 +12,7 @@ import "math"
 // S = { C/(2 - 2L) if L >  1/2
 // L = (max(R',G',B') + min(R',G',B'))/2  (0 <= L <= 1),
 // where C = max(R',G',B') - min(R',G',B').  
-func Rgb2Hsl(r, g, b float64) (h, s, l float64) {
+func RGBToHSL(r, g, b float64) (h, s, l float64) {
 	max := max3(r, g, b)
 	min := min3(r, g, b)
 	c := max - min
@@ -50,7 +50,7 @@ func Rgb2Hsl(r, g, b float64) (h, s, l float64) {
 //    0 <= S <= 1,
 //    0 <= L <= 1. 
 // The output sRGB values are scaled between 0 and 1.
-func Hsl2Rgb(h, s, l float64) (r, g, b float64) {
+func HSLToRGB(h, s, l float64) (r, g, b float64) {
 	var c float64
 	if l <= 0.5 {
 		c = 2 * l * s

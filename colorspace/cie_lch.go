@@ -26,12 +26,12 @@ func Lch2Lab(l, c, h float64) (float64, float64, float64) {
 	return l, a, b
 }
 
-// Xyz2Lch converts CIE XYZ to CIE L*C*H*. 
+// XYZToLch converts CIE XYZ to CIE L*C*H*. 
 // CIE L*C*H* is related to CIE L*a*b* by
 //    a* = C* math.Cos(H* pi/180),
 //    b* = C* math.Sin(H* pi/180).
-func Xyz2Lch(x, y, z float64) (l, c, h float64) {
-	l, a, b := Xyz2Lab(x, y, z)
+func XYZToLch(x, y, z float64) (l, c, h float64) {
+	l, a, b := XYZToLab(x, y, z)
 	c = math.Sqrt(a*a + b*b)
 	h = math.Atan2(b, a) * 180.0 / math.Pi
 	if h < 0 {
@@ -40,10 +40,10 @@ func Xyz2Lch(x, y, z float64) (l, c, h float64) {
 	return
 }
 
-// Lch2Xyz converts CIE L*C*H* to CIE XYZ. 
-func Lch2Xyz(l, c, h float64) (x, y, z float64) {
+// LchToXYZ converts CIE L*C*H* to CIE XYZ. 
+func LchToXYZ(l, c, h float64) (x, y, z float64) {
 	a := c * math.Cos(h*(math.Pi/180.0))
 	b := c * math.Sin(h*(math.Pi/180.0))
-	x, y, z = Lab2Xyz(l, a, b)
+	x, y, z = LabToXYZ(l, a, b)
 	return
 }

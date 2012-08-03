@@ -3,8 +3,8 @@
 package colorspace
 
 /*
-// Luv2Xyz converts a CIE-L*uv triple to a CIE-XYZ triple.
-func Luv2Xyz(l, u, v float64) (x, y, z float64) {
+// LuvToXYZ converts a CIE-L*uv triple to a CIE-XYZ triple.
+func LuvToXYZ(l, u, v float64) (x, y, z float64) {
 	// Observer= 2°, Illuminant= D65
 	ref_x := 95.047
 	ref_y := 100.000
@@ -28,8 +28,8 @@ func Luv2Xyz(l, u, v float64) (x, y, z float64) {
 	return
 }
 
-// Xyz2Luv converts a CIE-XYZ triple to a CIE-L*uv triple.
-func Xyz2Luv(x, y, z float64) (l, u, v float64) {
+// XYZToLuv converts a CIE-XYZ triple to a CIE-L*uv triple.
+func XYZToLuv(x, y, z float64) (l, u, v float64) {
 	// Observer= 2°, Illuminant= D65
 	ref_x := 95.047
 	ref_y := 100.000
@@ -55,8 +55,8 @@ func Xyz2Luv(x, y, z float64) (l, u, v float64) {
 }
 */
 
-// Luv2Xyz converts a CIE L*uv triple to a CIE XYZ triple.
-func Luv2Xyz(l, u, v float64) (x, y, z float64) {
+// LuvToXYZ converts a CIE L*uv triple to a CIE XYZ triple.
+func LuvToXYZ(l, u, v float64) (x, y, z float64) {
 	y = (l + 16) / 116.0
 	y = wY * labInv(y)
 
@@ -72,8 +72,8 @@ func Luv2Xyz(l, u, v float64) (x, y, z float64) {
 	return
 }
 
-// Xyz2Luv converts a CIE XYZ triple to a CIE L*uv triple.
-func Xyz2Luv(x, y, z float64) (l, u, v float64) {
+// XYZToLuv converts a CIE XYZ triple to a CIE L*uv triple.
+func XYZToLuv(x, y, z float64) (l, u, v float64) {
 	var u1, v1 float64
 	den := x + 15*y + 3*z
 	if den > 0 {

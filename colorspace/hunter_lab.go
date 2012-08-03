@@ -6,8 +6,8 @@ import (
 	"math"
 )
 
-// HunterLab2Xyz converts an Hunter Lab triple to an XYZ triple.
-func HunterLab2Xyz(hL, ha, hb float64) (float64, float64, float64) {
+// HunterLabToXYZ converts an Hunter Lab triple to an XYZ triple.
+func HunterLabToXYZ(hL, ha, hb float64) (float64, float64, float64) {
 	y := hL / 10
 	x := ha / 17.5 * hL / 10
 	z := hb / 7 * hL / 10
@@ -18,8 +18,8 @@ func HunterLab2Xyz(hL, ha, hb float64) (float64, float64, float64) {
 	return x, y, z
 }
 
-// Xyz2Hlab converts an XYZ triple to an Hunter Lab triple.
-func Xyz2Hlab(x, y, z float64) (float64, float64, float64) {
+// XYZToHlab converts an XYZ triple to an Hunter Lab triple.
+func XYZToHlab(x, y, z float64) (float64, float64, float64) {
 	hL := 10 * math.Sqrt(y)
 	ha := 17.5 * (((1.02 * x) - y) / math.Sqrt(y))
 	hb := 7 * ((y - (0.847 * z)) / math.Sqrt(y))

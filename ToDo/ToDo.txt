@@ -50,7 +50,7 @@ func Adobe2XYZ(r, g, b uint8) (x, y, z uint8) {
 return
 
 
-    rr, gg, bb := int32(r), int32(g), int32(b)
+	rr, gg, bb := int32(r), int32(g), int32(b)
 
 
-    xx, yy, zz := int32(x), int32(y), int32(z)
+	xx, yy, zz := int32(x), int32(y), int32(z)

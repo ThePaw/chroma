@@ -5,7 +5,7 @@ package colorspace
 import "math"
 
 // Convert RGB 0..1 to RGB 0..255. 
-func Rgb2IntRgb(r, g, b float64) (r8, g8, b8 uint8) {
+func RGBToIntRgb(r, g, b float64) (r8, g8, b8 uint8) {
 	r8 = uint8(clip(round(r), 255))
 	g8 = uint8(clip(round(g), 255))
 	b8 = uint8(clip(round(b), 255))
@@ -13,7 +13,7 @@ func Rgb2IntRgb(r, g, b float64) (r8, g8, b8 uint8) {
 }
 
 // Convert RGB 0..255 to RGB 0..1. 
-func IntRgb2Rgb(r8, g8, b8 uint8) (r, g, b float64) {
+func IntRGBToRgb(r8, g8, b8 uint8) (r, g, b float64) {
 	r = float64(r8) / 255.0
 	g = float64(g8) / 255.0
 	b = float64(b8) / 255.0

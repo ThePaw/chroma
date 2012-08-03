@@ -2,8 +2,8 @@
 
 package colorspace
 
-// Rgb2Xyz converts an RGB triple to an XYZ triple.
-func Rgb2Xyz(r, g, b float64) (x, y, z float64) {
+// RGBToXYZ converts an RGB triple to an XYZ triple.
+func RGBToXYZ(r, g, b float64) (x, y, z float64) {
 	r = gammaCorrInv(r)
 	g = gammaCorrInv(g)
 	b = gammaCorrInv(b)
@@ -13,8 +13,8 @@ func Rgb2Xyz(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// Xyz2Rgb converts an XYZ triple to an RGB triple.
-func Xyz2Rgb(x, y, z float64) (r, g, b float64) {
+// XYZToRGB converts an XYZ triple to an RGB triple.
+func XYZToRGB(x, y, z float64) (r, g, b float64) {
 	// convert to linear RGB
 	r1 := 3.2406*x - 1.5372*y - 0.4986*z
 	g1 := -0.9689*x + 1.8758*y + 0.0415*z
@@ -43,7 +43,7 @@ type XYZ struct {
 
 /*
 func (c XYZ) RGBA() (uint32, uint32, uint32, uint32) {
-	r, g, b := xyz2Rgb(c.X, c.Y, c.Z)
+	r, g, b := xyz2RGB(c.X, c.Y, c.Z)
 	return uint32(r) * 0x101, uint32(g) * 0x101, uint32(b) * 0x101, 0xffff
 }
 
@@ -55,7 +55,7 @@ func xYZModel(c Color) Color {
 		return c
 	}
 	r, g, b, _ := c.RGBA()
-	x, y, z := Rgb2Xyz(uint8(r>>8), uint8(g>>8), uint8(b>>8))
+	x, y, z := RGBToXYZ(uint8(r>>8), uint8(g>>8), uint8(b>>8))
 	return XYZ{x, y, z}
 }
 */

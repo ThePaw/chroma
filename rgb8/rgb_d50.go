@@ -10,7 +10,7 @@
 package rgb8
 
 // Converts from Adobe RGB 0 with D50 illuminator to CIE XYZ. 
-func Adobe2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func AdobeToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (39960*rr +  13450*gg +  9779*bb +1<<15) >> 16
 y = (20389*rr +  41002*gg +  4143*bb +1<<15) >> 16
@@ -20,7 +20,7 @@ z = (1276*rr +  3990*gg +  48813*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to Adobe RGB with D50 illuminator. 
-func Xyz2Adobe_D50(x, y, z int) (r, g, b uint8) {
+func XYZToAdobe_D50(x, y, z int) (r, g, b uint8) {
 rr := (128609*x  -40011*y  -22370*z +1<<15) >> 16
 gg := (-64144*x +  125576*y +  2192*z +1<<15) >> 16
 bb := (1880*x  -9219*y +  88392*z +1<<15) >> 16
@@ -45,7 +45,7 @@ bb := (1880*x  -9219*y +  88392*z +1<<15) >> 16
 }
 
 // Converts from Apple RGB with D50 illuminator to CIE XYZ. 
-func Apple2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func AppleToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (31166*rr +  22260*gg +  9763*bb +1<<15) >> 16
 y = (16723*rr +  44077*gg +  4734*bb +1<<15) >> 16
@@ -55,7 +55,7 @@ z = (1210*rr +  7430*gg +  45440*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to Apple RGB with D50 illuminator. 
-func Xyz2Apple_D50(x, y, z int) (r, g, b uint8) {
+func XYZToApple_D50(x, y, z int) (r, g, b uint8) {
 rr := (186847*x  -89163*y  -30856*z +1<<15) >> 16
 gg := (-71615*x +  133358*y +  1491*z +1<<15) >> 16
 bb := (6733*x  -19431*y +  95097*z +1<<15) >> 16
@@ -80,7 +80,7 @@ bb := (6733*x  -19431*y +  95097*z +1<<15) >> 16
 }
 
 // Converts from Bruce RGB with D50 illuminator to CIE XYZ. 
-func Bruce2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func BruceToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (32386*rr +  21003*gg +  9801*bb +1<<15) >> 16
 y = (16525*rr +  44858*gg +  4152*bb +1<<15) >> 16
@@ -90,7 +90,7 @@ z = (1034*rr +  4124*gg +  48922*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to Bruce RGB with D50 illuminator. 
-func Xyz2Bruce_D50(x, y, z int) (r, g, b uint8) {
+func XYZToBruce_D50(x, y, z int) (r, g, b uint8) {
 rr := (173689*x +  -78738*y +  -28114*z +1<<15) >> 16
 gg := (-64144*x +  125576*y +  2192*z +1<<15) >> 16
 bb := (1733*x +  -8920*y +  88201*z +1<<15) >> 16
@@ -115,7 +115,7 @@ bb := (1733*x +  -8920*y +  88201*z +1<<15) >> 16
 }
 
 // Converts from CIE RGB with D50 illuminator to CIE XYZ. 
-func Cie2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func CieToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (31908*rr +  20073*gg +  11208*bb +1<<15) >> 16
 y = (11446*rr +  54051*gg +  38*bb +1<<15) >> 16
@@ -125,7 +125,7 @@ z = (-82*rr +  1113*gg +  53050*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to CIE RGB with D50 illuminator. 
-func Xyz2Cie(x, y, z int) (r, g, b uint8) {
+func XYZToCie(x, y, z int) (r, g, b uint8) {
 rr := (154914*x  -56859*y  -32690*z +1<<15) >> 16
 gg := (-32806*x +  91503*y +  6865*z +1<<15) >> 16
 bb := (928*x  -2008*y +  80765*z +1<<15) >> 16
@@ -150,7 +150,7 @@ bb := (928*x  -2008*y +  80765*z +1<<15) >> 16
 }
 
 // Converts from  NTSC RGB with D50 illuminator to CIE XYZ. 
-func Ntsc2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func NTSCToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (41574*rr +  12138*gg +  9478*bb +1<<15) >> 16
 y = (20378*rr +  38770*gg +  6386*bb +1<<15) >> 16
@@ -160,7 +160,7 @@ z = (-77*rr +  3640*gg +  50517*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to NTSC RGB with D50 illuminator. 
-func Xyz2Ntsc_D50(x, y, z int) (r, g, b uint8) {
+func XYZToNTSC_D50(x, y, z int) (r, g, b uint8) {
 rr := (121011*x  -36184*y  -18130*z +1<<15) >> 16
 gg := (-64399*x +  131365*y  -4524*z +1<<15) >> 16
 bb := (4826*x  -9522*y +  85317*z +1<<15) >> 16
@@ -185,7 +185,7 @@ bb := (4826*x  -9522*y +  85317*z +1<<15) >> 16
 }
 
 // Converts from  PAL/SECAM RGB with D50 illuminator to CIE XYZ. 
-func Pal2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func PALToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (29837*rr +  24087*gg +  9266*bb +1<<15) >> 16
 y = (15224*rr +  46386*gg +  3925*bb +1<<15) >> 16
@@ -195,7 +195,7 @@ z = (953*rr +  6875*gg +  46251*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to PAL/SECAM RGB with D50 illuminator. 
-func Xyz2Pal_D50(x, y, z int) (r, g, b uint8) {
+func XYZToPAL_D50(x, y, z int) (r, g, b uint8) {
 rr := (194012*x  -96197*y  -30704*z +1<<15) >> 16
 gg := (-64144*x +  125576*y +  2192*z +1<<15) >> 16
 bb := (5536*x  -16685*y +  93167*z +1<<15) >> 16
@@ -220,7 +220,7 @@ bb := (5536*x  -16685*y +  93167*z +1<<15) >> 16
 }
 
 // Converts from  SMPTE-C RGB with D50 illuminator to CIE XYZ. 
-func SmpteC2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func SMPTE_CToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (27284*rr +  25765*gg +  10141*bb +1<<15) >> 16
 y = (14529*rr +  46088*gg +  4918*bb +1<<15) >> 16
@@ -230,7 +230,7 @@ z = (895*rr +  5987*gg +  47198*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to SMPTE-C RGB with D50 illuminator. 
-func Xyz2SmpteC_D50(x, y, z int) (r, g, b uint8) {
+func XYZToSMPTE_C_D50(x, y, z int) (r, g, b uint8) {
 rr := (222310*x  -119695*y  -35294*z +1<<15) >> 16
 gg := (-70588*x +  132474*y +  1363*z +1<<15) >> 16
 bb := (4738*x  -14535*y +  91494*z +1<<15) >> 16
@@ -255,7 +255,7 @@ bb := (4738*x  -14535*y +  91494*z +1<<15) >> 16
 }
 
 // Converts from  sRGB with D50 illuminator to CIE XYZ. 
-func Srgb2Xyz_D50(r, g, b uint8) (x, y, z int) {
+func SRGBToXYZ_D50(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 x = (28578*rr +  25235*gg +  9376*bb +1<<15) >> 16
 y = (14582*rr +  46981*gg +  3972*bb +1<<15) >> 16
@@ -265,7 +265,7 @@ z = (913*rr +  6363*gg +  46804*bb +1<<15) >> 16
 }
 
 // Converts from CIE XYZ to sRGB with D50 illuminator. 
-func Xyz2Srgb_D50(x, y, z int) (r, g, b uint8) {
+func XYZToSRGB_D50(x, y, z int) (r, g, b uint8) {
 rr := (205380*x  -105962*y  -32152*z +1<<15) >> 16
 gg := (-64144*x +  125576*y +  2192*z +1<<15) >> 16
 bb := (4715*x  -15007*y +  92093*z +1<<15) >> 16

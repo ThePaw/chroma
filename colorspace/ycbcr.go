@@ -2,16 +2,16 @@
 
 package colorspace
 
-// Rgb2Ycbcr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. [5][6]
-func Rgb2Ycbcr(r, g, b float64) (y, cb, cr float64) {
+// RGBToYCbCr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. [5][6]
+func RGBToYCbCr(r, g, b float64) (y, cb, cr float64) {
 	y = 65.481*r + 128.553*g + 24.966*b + 16
 	cb = -37.797*r - 74.203*g + 112.0*b + 128
 	cr = 112.0*r - 93.786*g - 18.214*b + 128
 	return
 }
 
-// Ycbcr2Rgb converts  Y'CbCr to sRGB. 
-func Ycbcr2Rgb(y, cb, cr float64) (r, g, b float64) {
+// YCbCrToRGB converts  Y'CbCr to sRGB. 
+func YCbCrToRGB(y, cb, cr float64) (r, g, b float64) {
 	y -= 16.0
 	cb -= 128.0
 	cr -= 128.0
@@ -22,16 +22,16 @@ func Ycbcr2Rgb(y, cb, cr float64) (r, g, b float64) {
 }
 
 /*
-// Rgb2Ycbcr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. 
-func Rgb2Ycbcr(r, g, b float64) (y, cb, cr float64) {
+// RGBToYCbCr converts sRGB to Y'CbCr Luma + Chroma. ITU-R BT.601 conversion. 
+func RGBToYCbCr(r, g, b float64) (y, cb, cr float64) {
 	y = 65.481*r + 128.553*g + 24.966*b + 16
 	cb = -37.797*r - 74.203*g + 112.0*b + 128
 	cr = 112.0*r - 93.786*g - 18.214*b + 128
 	return
 }
 
-// Ycbcr2Rgb converts  Y'CbCr to sRGB. ITU-R BT.601 conversion. 
-func Ycbcr2Rgb(y, cb, cr float64) (r, g, b float64) {
+// YCbCrToRGB converts  Y'CbCr to sRGB. ITU-R BT.601 conversion. 
+func YCbCrToRGB(y, cb, cr float64) (r, g, b float64) {
 	y -= 16
 	cb -= 128
 	cr -= 128

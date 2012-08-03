@@ -25,7 +25,7 @@ func check(x, y float64) bool {
 func TestRGB2XYZ(t *testing.T) {
 	fmt.Println("test of sRGB to XYZ")
 	r, g, b := 0.545877, 0.966567, 0.463759
-	x, y, z := (Rgb2Xyz(r, g, b))
+	x, y, z := (RGBToXYZ(r, g, b))
 	x2, y2, z2 := 0.470645, 0.730177, 0.288323
 	if !check(x, x2) {
 		t.Error()
@@ -44,7 +44,7 @@ func TestRGB2XYZ(t *testing.T) {
 func TestXYZ2RGB(t *testing.T) {
 	fmt.Println("test of XYZ to sRGB")
 	x, y, z := 0.470645, 0.730177, 0.288323
-	r, g, b := Xyz2Rgb(x, y, z)
+	r, g, b := XYZToRGB(x, y, z)
 	r2, g2, b2 := 0.545877, 0.966567, 0.463759
 	v := float64(r)
 	v2 := float64(r2)
@@ -69,7 +69,7 @@ func TestXYZ2RGB(t *testing.T) {
 func TestXYZtoLab(t *testing.T) {
 	fmt.Println("test of XYZ to Lab")
 	x, y, z := 0.470645, 0.730177, 0.288323
-	l, a, b := (Xyz2Lab(x, y, z))
+	l, a, b := (XYZToLab(x, y, z))
 	l2, a2, b2 := 88.456154, -54.671483, 51.662818
 	if !check(l, l2) {
 		t.Error()
@@ -85,10 +85,10 @@ func TestXYZtoLab(t *testing.T) {
 	}
 }
 
-func TestLab2Xyz(t *testing.T) {
+func TestLabToXYZ(t *testing.T) {
 	fmt.Println("test of Lab to XYZ")
 	l, a, b := 88.456154, -54.671483, 51.662818
-	x, y, z := (Lab2Xyz(l, a, b))
+	x, y, z := (LabToXYZ(l, a, b))
 	x2, y2, z2 := 0.470645, 0.730177, 0.288323
 	if !check(x, x2) {
 		t.Error()
@@ -107,7 +107,7 @@ func TestLab2Xyz(t *testing.T) {
 func TestXYZtoLuv(t *testing.T) {
 	fmt.Println("test of XYZ to Luv")
 	x, y, z := 0.470645, 0.730177, 0.288323
-	l, u, v := (Xyz2Luv(x, y, z))
+	l, u, v := (XYZToLuv(x, y, z))
 	l2, u2, v2 := 88.456154, -51.330414, 76.405526
 	if !check(l, l2) {
 		t.Error()
@@ -126,8 +126,8 @@ func TestXYZtoLuv(t *testing.T) {
 func TestXYZtoLuvAndBack(t *testing.T) {
 	fmt.Println("test of XYZ to Luv and back")
 	x, y, z := 56.060, 50.490, 8.160
-	l, u, v := Xyz2Luv(x, y, z)
-	x2, y2, z2 := Luv2Xyz(l, u, v)
+	l, u, v := XYZToLuv(x, y, z)
+	x2, y2, z2 := LuvToXYZ(l, u, v)
 	if !check(x, x2) {
 		t.Error()
 		fmt.Println(x, x2)
@@ -145,8 +145,8 @@ func TestXYZtoLuvAndBack(t *testing.T) {
 func TestXYZtoLabAndBack(t *testing.T) {
 	fmt.Println("test of XYZ to Lab and back")
 	x, y, z := 56.060, 50.490, 8.160
-	l, a, b := Xyz2Lab(x, y, z)
-	x2, y2, z2 := Lab2Xyz(l, a, b)
+	l, a, b := XYZToLab(x, y, z)
+	x2, y2, z2 := LabToXYZ(l, a, b)
 	if !check(x, x2) {
 		t.Error()
 		fmt.Println(x, x2)
@@ -201,8 +201,8 @@ func TestRGBtoYCbCr(t *testing.T) {
 	r, g, b := 0.540000, 0.960000, 0.460000
 	d, e, f := 186.254980, 87.874740, 90.067000
 
-	fn1 := Rgb2Ycbcr
-	fn2 := Ycbcr2Rgb
+	fn1 := RGBToYCbCr
+	fn2 := YCbCrToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -237,7 +237,7 @@ func TestRGBtoJPEGYCbCr(t *testing.T) {
 	fmt.Println("test of sRGB to JPEG-Y'CbCr and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.783460, 0.319581, 0.330539
-	d2, e2, f2 := Rgb2Jycbcr(r, g, b)
+	d2, e2, f2 := RGBToJPEG_YCbCr(r, g, b)
 	if !check(d, d2) {
 		t.Error()
 		fmt.Println("d: ", d, d2)
@@ -251,7 +251,7 @@ func TestRGBtoJPEGYCbCr(t *testing.T) {
 		fmt.Println("f: ", f, f2)
 	}
 	//back
-	r2, g2, b2 := Jycbcr2Rgb(d, e, f)
+	r2, g2, b2 := JPEG_YCbCrToRGB(d, e, f)
 	if !check(r, r2) {
 		t.Error()
 		fmt.Println("r: ", r, r2)
@@ -270,8 +270,8 @@ func TestRGBtoYPbPr(t *testing.T) {
 	fmt.Println("test of sRGB to Y'PbPr and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.783460, -0.180419, -0.169461
-	fn1 := Rgb2Ypbpr
-	fn2 := Ypbpr2Rgb
+	fn1 := RGBToYPbPr
+	fn2 := YPbPrToRGB
 	d2, e2, f2 := fn1(r, g, b)
 
 	if !check(d, d2) {
@@ -306,8 +306,8 @@ func TestRGBtoYDbDr(t *testing.T) {
 	fmt.Println("test of sRGB to Y'DbDr and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.783460, -0.480932, 0.451670
-	fn1 := Rgb2Ydbdr
-	fn2 := Ydbdr2Rgb
+	fn1 := RGBToYDbDr
+	fn2 := YDbDrToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -342,8 +342,8 @@ func TestRGBtoYUV(t *testing.T) {
 	fmt.Println("test of sRGB to Y'UV and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.783460, -0.157383, -0.208443
-	fn1 := Rgb2Yuv
-	fn2 := Yuv2Rgb
+	fn1 := RGBToYUV
+	fn2 := YUVToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -378,8 +378,8 @@ func TestRGBtoYIQ(t *testing.T) {
 	fmt.Println("test of sRGB to Y'IQ and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.783460, -0.089078, -0.245399
-	fn1 := Rgb2Yiq
-	fn2 := Yiq2Rgb
+	fn1 := RGBToYIQ
+	fn2 := YIQToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -414,8 +414,8 @@ func TestRGBtoHSV(t *testing.T) {
 	fmt.Println("test of sRGB to HSV and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 110.200859, 0.520200, 0.966567
-	fn1 := Rgb2Hsv
-	fn2 := Hsv2Rgb
+	fn1 := RGBToHSV
+	fn2 := HSVToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -450,8 +450,8 @@ func TestRGBtoHSL(t *testing.T) {
 	fmt.Println("test of sRGB to HSL and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 110.200859, 0.882623, 0.715163
-	fn1 := Rgb2Hsl
-	fn2 := Hsl2Rgb
+	fn1 := RGBToHSL
+	fn2 := HSLToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -486,8 +486,8 @@ func TestRGBtoHSI(t *testing.T) {
 	fmt.Println("test of sRGB to HSI and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 111.244375, 0.295985, 0.658734
-	fn1 := Rgb2Hsi
-	fn2 := Hsi2Rgb
+	fn1 := RGBToHSI
+	fn2 := HSIToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -522,8 +522,8 @@ func TestRGBtoXYZ(t *testing.T) {
 	fmt.Println("test of sRGB to XYZ and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.470645, 0.730177, 0.288323
-	fn1 := Rgb2Xyz
-	fn2 := Xyz2Rgb
+	fn1 := RGBToXYZ
+	fn2 := XYZToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -558,8 +558,8 @@ func TestRGBtoLab(t *testing.T) {
 	fmt.Println("test of sRGB to L*a*b* and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 88.456154, -54.671483, 51.662818
-	fn1 := Rgb2Lab
-	fn2 := Lab2Rgb
+	fn1 := RGBToLab
+	fn2 := LabToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -594,8 +594,8 @@ func TestRGBtoLuv(t *testing.T) {
 	fmt.Println("test of sRGB to L*u*v* and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 88.456154, -51.330414, 76.405526
-	fn1 := Rgb2Luv
-	fn2 := Luv2Rgb
+	fn1 := RGBToLuv
+	fn2 := LuvToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -630,8 +630,8 @@ func TestRGBtoLch(t *testing.T) {
 	fmt.Println("test of sRGB to L*C*H* and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 88.456154, 75.219797, 136.620717
-	fn1 := Rgb2Lch
-	fn2 := Lch2Rgb
+	fn1 := RGBToLch
+	fn2 := LchToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {
@@ -662,12 +662,12 @@ func TestRGBtoLch(t *testing.T) {
 	}
 }
 
-func TestRGBtoLms(t *testing.T) {
+func TestRGBtoLMS(t *testing.T) {
 	fmt.Println("test of sRGB to CAT02 LMS and back")
 	r, g, b := 0.545877, 0.966567, 0.463759
 	d, e, f := 0.611749, 0.910088, 0.294880
-	fn1 := Rgb2Lms
-	fn2 := Lms2Rgb
+	fn1 := RGBToLMS
+	fn2 := LMSToRGB
 	//forward
 	d2, e2, f2 := fn1(r, g, b)
 	if !check(d, d2) {

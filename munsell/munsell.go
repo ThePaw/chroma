@@ -5,8 +5,8 @@
 // Ref.: [32][33] 
 package munsell
 
-// Munsell2Xyz converts from Munsell  HVC with D65 illuminator to CIE XYZ. 
-func Munsell2Xyz(h string, v, c float64) (x, y, z float64) {
+// MunsellToXYZ converts from Munsell  HVC with D65 illuminator to CIE XYZ. 
+func MunsellToXYZ(h string, v, c float64) (x, y, z float64) {
 	var (
 		err    bool
 		i, idx int

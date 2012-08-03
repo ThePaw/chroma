@@ -23,36 +23,36 @@ func check_diff(x, y float64) bool {
 
 // Test whether XYZ is always within [0.0, 1.0]. . 
 
-func TestRgb2XyzWithin01(t *testing.T) {
+func TestRgbToXYZWithin01(t *testing.T) {
 	const eps float64 = 0.174 // tolerance
 lo:=0.0-eps
 hi:=1.0+eps
 	type fn func(r, g, b float64) (x, y, z float64)
 	f := [][]fn{
-		{Adobe2Xyz_D50, Xyz2Adobe_D50},
-		{Apple2Xyz_D50, Xyz2Apple_D50},
-		{Bruce2Xyz_D50, Xyz2Bruce_D50},
-		{Cie2Xyz_D50, Xyz2Cie},
-		{Ntsc2Xyz_D50, Xyz2Ntsc_D50},
-		{Pal2Xyz_D50, Xyz2Pal_D50},
-		{SmpteC2Xyz_D50, Xyz2SmpteC_D50},
-		{Srgb2Xyz_D50, Xyz2Srgb_D50},
-		{Adobe2Xyz, Xyz2Adobe},
-		{Apple2Xyz, Xyz2Apple},
-		{Best2Xyz, Xyz2Best},
-		{Beta2Xyz, Xyz2Beta},
-		{Bruce2Xyz, Xyz2Bruce},
-		{CieE2Xyz, Xyz2CieE},
-		{ColorMatch2Xyz, Xyz2ColorMatch},
-		{Don2Xyz, Xyz2Don},
-		{Eci2Xyz, Xyz2Eci},
-		{EktaSpace2Xyz, Xyz2EktaSpace},
-		{Ntsc2Xyz, Xyz2Ntsc},
-		{Pal2Xyz, Xyz2Pal},
-		{ProPhoto2Xyz, Xyz2ProPhoto},
-		{SmpteC2Xyz, Xyz2SmpteC},
-		{Srgb2Xyz, Xyz2Srgb},
-		{WGamut2Xyz, Xyz2WGamut}}
+		{AdobeToXYZ_D50, XYZToAdobe_D50},
+		{AppleToXYZ_D50, XYZToApple_D50},
+		{BruceToXYZ_D50, XYZToBruce_D50},
+		{CieToXYZ_D50, XYZToCie},
+		{NTSCToXYZ_D50, XYZToNTSC_D50},
+		{PALToXYZ_D50, XYZToPAL_D50},
+		{SMPTE_CToXYZ_D50, XYZToSMPTE_C_D50},
+		{SRGBToXYZ_D50, XYZToSRGB_D50},
+		{AdobeToXYZ, XYZToAdobe},
+		{AppleToXYZ, XYZToApple},
+		{BestToXYZ, XYZToBest},
+		{BetaToXYZ, XYZToBeta},
+		{BruceToXYZ, XYZToBruce},
+		{CIEToXYZ, XYZToCIE},
+		{ColorMatchToXYZ, XYZToColorMatch},
+		{DonToXYZ, XYZToDon},
+		{EciToXYZ, XYZToEci},
+		{EktaSpaceToXYZ, XYZToEktaSpace},
+		{NTSCToXYZ, XYZToNTSC},
+		{PALToXYZ, XYZToPAL},
+		{ProPhotoToXYZ, XYZToProPhoto},
+		{SMPTE_CToXYZ, XYZToSMPTE_C},
+		{SRGBToXYZ, XYZToSRGB},
+		{WGamutToXYZ, XYZToWGamut}}
 	nFunc := len(f)
 	for i := 0; i < nFunc; i++ {
 		fmt.Println("Testing fn #", i)
