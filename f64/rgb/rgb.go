@@ -1,9 +1,8 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// Convert different RGB colorspaces with their native illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. to CIE XYZ and back. 
+// Convert different RGB colorspaces with their native illuminator to CIE XYZ and back. 
 // RGB values must be linear and in the nominal range [0.0, 1.0]. 
-// Ref.: [24][30][31]
-
+// Ref.: [24][30][31]. 
 package rgb
 
 // AdobeToXYZ converts from Adobe RGB (1998) with D65 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
@@ -14,7 +13,7 @@ func AdobeToXYZ(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-//  XYZToAdobe converts from CIE XYZ to Adobe RGB(1998) with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
+//  XYZToAdobe converts from CIE XYZ to Adobe RGB (1998) with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToAdobe(x, y, z float64) (r, g, b float64) {
 	r = 2.0413690*x + -0.5649464*y + -0.3446944*z
 	g = -0.9692660*x + 1.8760108*y + 0.0415560*z
