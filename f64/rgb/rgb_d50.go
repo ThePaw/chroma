@@ -60,8 +60,8 @@ func CieToXYZ_D50(r, g, b float64) (x, y, z float64) {
 	return
 }
 
-// XYZToCie converts from CIE XYZ to CIE RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
-func XYZToCie(x, y, z float64) (r, g, b float64) {
+// XYZToCie_D50 converts from CIE XYZ to CIE RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
+func XYZToCie_D50(x, y, z float64) (r, g, b float64) {
 	r = (2.3638081*x + -0.8676030*y + -0.4988161*z)
 	g = (-0.5005940*x + 1.3962369*y + 0.1047562*z)
 	b = (0.0141712*x + -0.0306400*y + 1.2323842*z)

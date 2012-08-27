@@ -124,8 +124,8 @@ z = (-82*rr +  1113*gg +  53050*bb +1<<15) >> 16
 	return
 }
 
-// XYZToCie converts from CIE XYZ to CIE RGB with D50 illuminator. 
-func XYZToCie(x, y, z int) (r, g, b uint8) {
+// XYZToCie_D50 converts from CIE XYZ to CIE RGB with D50 illuminator. 
+func XYZToCie_D50(x, y, z int) (r, g, b uint8) {
 rr := (154914*x  -56859*y  -32690*z +1<<15) >> 16
 gg := (-32806*x +  91503*y +  6865*z +1<<15) >> 16
 bb := (928*x  -2008*y +  80765*z +1<<15) >> 16

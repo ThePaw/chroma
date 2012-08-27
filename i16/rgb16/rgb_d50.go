@@ -100,8 +100,6 @@ bb:=int64(b)
 	return
 }
 
-
-
 // XYZToBruce_D50 converts from CIE XYZ to Bruce RGB with D50 illuminator. 
 func XYZToBruce_D50(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
@@ -127,9 +125,6 @@ func XYZToBruce_D50(x, y, z int) (r, g, b uint16) {
 	return
 }
 
-
-
-
 // CieToXYZ_D50 converts from CIE RGB with D50 illuminator to CIE XYZ. 
 func CieToXYZ_D50(r,g,b uint16) (x, y, z int) {
 rr:=int64(r)
@@ -140,8 +135,6 @@ bb:=int64(b)
 	 z  = int(( -191696167 *rr +  2591430664 *gg+  123517318725 *bb)/1e7)
 	return
 }
-
-
 
 // XYZToCie_D50 converts from CIE XYZ to CIE RGB with D50 illuminator. 
 func XYZToCie_D50(x, y, z int) (r, g, b uint16) {
