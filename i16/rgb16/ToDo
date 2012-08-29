@@ -1,0 +1,2 @@
+There is a bug: recalculate matrices by multiplying by 0.9999847412109375  (= (2^16-1)/2^16)
+Sorry. I'm an idiot.

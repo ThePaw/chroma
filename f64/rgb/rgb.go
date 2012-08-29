@@ -15,9 +15,9 @@ func AdobeToXYZ(r, g, b float64) (x, y, z float64) {
 
 //  XYZToAdobe converts from CIE XYZ to Adobe RGB (1998) with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToAdobe(x, y, z float64) (r, g, b float64) {
-	r = 2.0413690*x + -0.5649464*y + -0.3446944*z
+	r = 2.0413690*x -0.5649464*y -0.3446944*z
 	g = -0.9692660*x + 1.8760108*y + 0.0415560*z
-	b = 0.0134474*x + -0.1183897*y + 1.0154096*z
+	b = 0.0134474*x -0.1183897*y + 1.0154096*z
 	return
 }
 
@@ -31,9 +31,9 @@ func AppleToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToApple converts from CIE XYZ to Apple RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToApple(x, y, z float64) (r, g, b float64) {
-	r = 2.9515373*x + -1.2894116*y + -0.4738445*z
+	r = 2.9515373*x -1.2894116*y -0.4738445*z
 	g = -1.0851093*x + 1.9908566*y + 0.0372026*z
-	b = 0.0854934*x + -0.2694964*y + 1.0912975*z
+	b = 0.0854934*x -0.2694964*y + 1.0912975*z
 	return
 }
 
@@ -47,9 +47,9 @@ func BestToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToBest converts from CIE XYZ to Best RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToBest(x, y, z float64) (r, g, b float64) {
-	r = 1.7552599*x + -0.4836786*y + -0.2530000*z
+	r = 1.7552599*x -0.4836786*y -0.2530000*z
 	g = -0.5441336*x + 1.5068789*y + 0.0215528*z
-	b = 0.0063467*x + -0.0175761*y + 1.2256959*z
+	b = 0.0063467*x -0.0175761*y + 1.2256959*z
 	return
 }
 
@@ -63,9 +63,9 @@ func BetaToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToBeta converts from CIE XYZ to Beta RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToBeta(x, y, z float64) (r, g, b float64) {
-	r = 1.6832270*x + -0.4282363*y + -0.2360185*z
+	r = 1.6832270*x -0.4282363*y -0.2360185*z
 	g = -0.7710229*x + 1.7065571*y + 0.0446900*z
-	b = 0.0400013*x + -0.0885376*y + 1.2723640*z
+	b = 0.0400013*x -0.0885376*y + 1.2723640*z
 	return
 }
 
@@ -79,9 +79,9 @@ func BruceToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToBruce converts from CIE XYZ to Bruce RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToBruce(x, y, z float64) (r, g, b float64) {
-	r = 2.7454669*x + -1.1358136*y + -0.4350269*z
+	r = 2.7454669*x -1.1358136*y -0.4350269*z
 	g = -0.9692660*x + 1.8760108*y + 0.0415560*z
-	b = 0.0112723*x + -0.1139754*y + 1.0132541*z
+	b = 0.0112723*x -0.1139754*y + 1.0132541*z
 	return
 }
 
@@ -95,9 +95,9 @@ func CIEToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToCIE converts from CIE XYZ to CIE RGB with E illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToCIE(x, y, z float64) (r, g, b float64) {
-	r = 2.3706743*x + -0.9000405*y + -0.4706338*z
+	r = 2.3706743*x -0.9000405*y -0.4706338*z
 	g = -0.5138850*x + 1.4253036*y + 0.0885814*z
-	b = 0.0052982*x + -0.0146949*y + 1.0093968*z
+	b = 0.0052982*x -0.0146949*y + 1.0093968*z
 	return
 }
 
@@ -111,9 +111,9 @@ func ColorMatchToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToColorMatch converts from CIE XYZ to ColorMatch RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToColorMatch(x, y, z float64) (r, g, b float64) {
-	r = 2.6422874*x + -1.2234270*y + -0.3930143*z
+	r = 2.6422874*x -1.2234270*y -0.3930143*z
 	g = -1.1119763*x + 2.0590183*y + 0.0159614*z
-	b = 0.0821699*x + -0.2807254*y + 1.4559877*z
+	b = 0.0821699*x -0.2807254*y + 1.4559877*z
 	return
 }
 
@@ -127,9 +127,9 @@ func DonToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToDon converts from CIE XYZ to Don RGB-4 with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToDon(x, y, z float64) (r, g, b float64) {
-	r = 1.7603902*x + -0.4881198*y + -0.2536126*z
+	r = 1.7603902*x -0.4881198*y -0.2536126*z
 	g = -0.7126288*x + 1.6527432*y + 0.0416715*z
-	b = 0.0078207*x + -0.0347411*y + 1.2447743*z
+	b = 0.0078207*x -0.0347411*y + 1.2447743*z
 	return
 }
 
@@ -143,9 +143,9 @@ func EciToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToEci converts from CIE XYZ to ECI RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToEci(x, y, z float64) (r, g, b float64) {
-	r = 1.7827618*x + -0.4969847*y + -0.2690101*z
-	g = -0.9593623*x + 1.9477962*y + -0.0275807*z
-	b = 0.0859317*x + -0.1744674*y + 1.3228273*z
+	r = 1.7827618*x -0.4969847*y -0.2690101*z
+	g = -0.9593623*x + 1.9477962*y -0.0275807*z
+	b = 0.0859317*x -0.1744674*y + 1.3228273*z
 	return
 }
 
@@ -159,9 +159,9 @@ func EktaSpaceToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToEktaSpace converts from CIE XYZ to Ekta Space PS5 with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToEktaSpace(x, y, z float64) (r, g, b float64) {
-	r = 2.0043819*x + -0.7304844*y + -0.2450052*z
+	r = 2.0043819*x -0.7304844*y -0.2450052*z
 	g = -0.7110285*x + 1.6202126*y + 0.0792227*z
-	b = 0.0381263*x + -0.0868780*y + 1.2725438*z
+	b = 0.0381263*x -0.0868780*y + 1.2725438*z
 	return
 }
 
@@ -175,9 +175,9 @@ func NTSCToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToNTSC converts from CIE XYZ to NTSC RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToNTSC(x, y, z float64) (r, g, b float64) {
-	r = 1.9099961*x + -0.5324542*y + -0.2882091*z
-	g = -0.9846663*x + 1.9991710*y + -0.0283082*z
-	b = 0.0583056*x + -0.1183781*y + 0.8975535*z
+	r = 1.9099961*x -0.5324542*y -0.2882091*z
+	g = -0.9846663*x + 1.9991710*y -0.0283082*z
+	b = 0.0583056*x -0.1183781*y + 0.8975535*z
 	return
 }
 
@@ -191,9 +191,9 @@ func PALToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToPAL converts from CIE XYZ to PAL/SECAM RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToPAL(x, y, z float64) (r, g, b float64) {
-	r = 3.0628971*x + -1.3931791*y + -0.4757517*z
+	r = 3.0628971*x -1.3931791*y -0.4757517*z
 	g = -0.9692660*x + 1.8760108*y + 0.0415560*z
-	b = 0.0678775*x + -0.2288548*y + 1.0693490*z
+	b = 0.0678775*x -0.2288548*y + 1.0693490*z
 	return
 }
 
@@ -207,7 +207,7 @@ func ProPhotoToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToProPhoto converts from CIE XYZ to  ProPhoto RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToProPhoto(x, y, z float64) (r, g, b float64) {
-	r = 1.3459433*x + -0.2556075*y + -0.0511118*z
+	r = 1.3459433*x -0.2556075*y -0.0511118*z
 	g = -0.5445989*x + 1.5081673*y + 0.0205351*z
 	b = 0.0000000*x + 0.0000000*y + 1.2118128*z
 	return
@@ -223,9 +223,9 @@ func SMPTE_CToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToSMPTE_C converts from CIE XYZ to SMPTE-C RGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToSMPTE_C(x, y, z float64) (r, g, b float64) {
-	r = 3.5053960*x + -1.7394894*y + -0.5439640*z
+	r = 3.5053960*x -1.7394894*y -0.5439640*z
 	g = -1.0690722*x + 1.9778245*y + 0.0351722*z
-	b = 0.0563200*x + -0.1970226*y + 1.0502026*z
+	b = 0.0563200*x -0.1970226*y + 1.0502026*z
 	return
 }
 
@@ -239,9 +239,9 @@ func SRGBToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToSRGB converts from CIE XYZ to sRGB with D65 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToSRGB(x, y, z float64) (r, g, b float64) {
-	r = 3.2404542*x + -1.5371385*y + -0.4985314*z
+	r = 3.2404542*x -1.5371385*y -0.4985314*z
 	g = -0.9692660*x + 1.8760108*y + 0.0415560*z
-	b = 0.0556434*x + -0.2040259*y + 1.0572252*z
+	b = 0.0556434*x -0.2040259*y + 1.0572252*z
 	return
 }
 
@@ -255,8 +255,8 @@ func WGamutToXYZ(r, g, b float64) (x, y, z float64) {
 
 // XYZToWGamut converts from CIE XYZ to Wide Gamut RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
 func XYZToWGamut(x, y, z float64) (r, g, b float64) {
-	r = 1.4628067*x + -0.1840623*y + -0.2743606*z
+	r = 1.4628067*x -0.1840623*y -0.2743606*z
 	g = -0.5217933*x + 1.4472381*y + 0.0677227*z
-	b = 0.0349342*x + -0.0968930*y + 1.2884099*z
+	b = 0.0349342*x -0.0968930*y + 1.2884099*z
 	return
 }

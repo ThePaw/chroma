@@ -1,6 +1,6 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-package rgb16
+package rgb8
 
 import (
 	"fmt"
@@ -22,21 +22,15 @@ func check_diff(x, y int) bool {
 }
 
 func TestRgb(t *testing.T) {
-var r, g, b uint16
-r, g, b = 6425, 13107, 46003
-
-//rgb 
-
-x0, y0, z0 := 225752000, 207464000, 712507000
-
+var r, g, b uint8
+r, g, b = 33, 68, 27
+x0, y0, z0 := 144042000, 213747000, 127289000
 x, y, z := AdobeToXYZ(r, g, b)
-	if !(check_diff(x, x0) && check_diff(y, y0) && check_diff(z, z0)) {
-						fmt.Println("x, y, z = ",  x, y, z ,  "x0, y0, z0 = ",x0, y0, z0 )
-
-
+fmt.Println("coeff = ",  float64(x)/ float64(x0) )
+fmt.Println("coeff = ",  float64(y)/ float64(y0) )
+fmt.Println("coeff = ",  float64(z)/ float64(z0) )
 r1, g1, b1 := XYZToAdobe(x, y, z)
-						fmt.Println("r,g,b = ",  r,g,b ,  "r1, g1, b1 = ",r1, g1, b1)
+fmt.Println("rgb ",  r, g, b )
+fmt.Println("rgb ",  r1, g1, b1 )
 
 }
-}
-

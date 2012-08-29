@@ -1,1 +1,10 @@
-01_test.go
+// 01_test:
+Number of tests =  402653184
+Accuracy =  1
+Step =  1
+maxErr =  1.7320508075688772
+Worst case: 
+RGB 0 =  1 1 2
+RGB 1 =  0 0 1
+PASS
+ok  	code.google.com/p/chroma/i8/rgb8	82.376s

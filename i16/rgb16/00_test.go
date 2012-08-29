@@ -37,6 +37,27 @@ x, y, z := AdobeToXYZ(r, g, b)
 r1, g1, b1 := XYZToAdobe(x, y, z)
 						fmt.Println("r,g,b = ",  r,g,b ,  "r1, g1, b1 = ",r1, g1, b1)
 
+
+r, g, b = 65535, 65535, 65535
+x, y, z = AdobeToXYZ(r, g, b)
+						fmt.Println("x, y, z = ",  x, y, z  )
+
+// 33, 68, 27
+r, g, b = 8481, 17476, 6939
+x0, y0, z0 = 144042000, 213747000, 127289000
+x, y, z = AdobeToXYZ(r, g, b)
+fmt.Println("coeff = ",  float64(x)/ float64(x0) )
+fmt.Println("coeff = ",  float64(y)/ float64(y0) )
+fmt.Println("coeff = ",  float64(z)/ float64(z0) )
+
+// 155, 16, 99
+//r, g, b = 155*257, 16*257, 99*257
+r, g, b = 39835, 4112, 25443
+x0, y0, z0 = 435265000, 249346000, 405651000
+x, y, z = AdobeToXYZ(r, g, b)
+fmt.Println("coeff = ",  float64(x)/ float64(x0) )
+fmt.Println("coeff = ",  float64(y)/ float64(y0) )
+fmt.Println("coeff = ",  float64(z)/ float64(z0) )
 }
 }
 

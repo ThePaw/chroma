@@ -22,9 +22,9 @@ bb:=int64(b)
 // XYZToAdobe converts from CIE XYZ to Adobe RGB 1998 with D65 illuminator. 
 func XYZToAdobe(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 20413690 *xx +  -5649464 *yy+  -3446944 *zz)/152587890625)
+	 rr  := int(( 20413690 *xx -5649464 *yy-3446944 *zz)/152587890625)
 	 gg  := int(( -9692660 *xx +  18760108 *yy+  415560 *zz)/152587890625)
-	 bb  := int(( 134474 *xx +  -1183897 *yy+  10154096 *zz)/152587890625)
+	 bb  := int(( 134474 *xx -1183897 *yy+  10154096 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -65,9 +65,9 @@ func AppleToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToApple converts from CIE XYZ to Apple RGB with D65 illuminator. 
 func XYZToApple(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 29515373 *xx +  -12894116 *yy+  -4738445 *zz)/152587890625)
+	 rr  := int(( 29515373 *xx -12894116 *yy-4738445 *zz)/152587890625)
 	 gg  := int(( -10851093 *xx +  19908566 *yy+  372026 *zz)/152587890625)
-	 bb  := int(( 854934 *xx +  -2694965 *yy+  10912975 *zz)/152587890625)
+	 bb  := int(( 854934 *xx -2694965 *yy+  10912975 *zz)/152587890625)
 	if rr < 0 {
 		rr = 0
 	} else if rr > 65535 {
@@ -105,9 +105,9 @@ func BestToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToBest converts from CIE XYZ to Best RGB with D50 illuminator. 
 func XYZToBest(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 17552599 *xx +  -4836786 *yy+  -2530000 *zz)/152587890625)
+	 rr  := int(( 17552599 *xx -4836786 *yy-2530000 *zz)/152587890625)
 	 gg  := int(( -5441336 *xx +  15068789 *yy+  215528 *zz)/152587890625)
-	 bb  := int(( 63467 *xx +  -175761 *yy+  12256959 *zz)/152587890625)
+	 bb  := int(( 63467 *xx -175761 *yy+  12256959 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -146,9 +146,9 @@ func BetaToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToBeta converts from CIE XYZ to Beta RGB with D50 illuminator. 
 func XYZToBeta(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 16832270 *xx +  -4282363 *yy+  -2360185 *zz)/152587890625)
+	 rr  := int(( 16832270 *xx -4282363 *yy-2360185 *zz)/152587890625)
 	 gg  := int(( -7710229 *xx +  17065571 *yy+  446900 *zz)/152587890625)
-	 bb  := int(( 400012 *xx +  -885376 *yy+  12723640 *zz)/152587890625)
+	 bb  := int(( 400012 *xx -885376 *yy+  12723640 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -187,9 +187,9 @@ func BruceToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToBruce converts from CIE XYZ to Bruce RGB with D65 illuminator. 
 func XYZToBruce(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 27454669 *xx +  -11358136 *yy+  -4350269 *zz)/152587890625)
+	 rr  := int(( 27454669 *xx -11358136 *yy-4350269 *zz)/152587890625)
 	 gg  := int(( -9692660 *xx +  18760108 *yy+  415560 *zz)/152587890625)
-	 bb  := int(( 112723 *xx +  -1139754 *yy+  10132541 *zz)/152587890625)
+	 bb  := int(( 112723 *xx -1139754 *yy+  10132541 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -228,9 +228,9 @@ func CIEToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToCIE converts from CIE XYZ to CIE RGB with E illuminator. 
 func XYZToCIE(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 23706743 *xx +  -9000405 *yy+  -4706338 *zz)/152587890625)
+	 rr  := int(( 23706743 *xx -9000405 *yy-4706338 *zz)/152587890625)
 	 gg  := int(( -5138850 *xx +  14253035 *yy+  885814 *zz)/152587890625)
-	 bb  := int(( 52982 *xx +  -146949 *yy+  10093968 *zz)/152587890625)
+	 bb  := int(( 52982 *xx -146949 *yy+  10093968 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -269,9 +269,9 @@ func ColorMatchToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToColorMatch converts from CIE XYZ to ColorMatch RGB with D50 illuminator. 
 func XYZToColorMatch(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 26422874 *xx +  -12234270 *yy+  -3930143 *zz)/152587890625)
+	 rr  := int(( 26422874 *xx -12234270 *yy-3930143 *zz)/152587890625)
 	 gg  := int(( -11119763 *xx +  20590183 *yy+  159614 *zz)/152587890625)
-	 bb  := int(( 821699 *xx +  -2807254 *yy+  14559877 *zz)/152587890625)
+	 bb  := int(( 821699 *xx -2807254 *yy+  14559877 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -310,9 +310,9 @@ func DonToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToDon converts from CIE XYZ to Don RGB-4 with D50 illuminator. 
 func XYZToDon(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 17603902 *xx +  -4881198 *yy+  -2536126 *zz)/152587890625)
+	 rr  := int(( 17603902 *xx -4881198 *yy-2536126 *zz)/152587890625)
 	 gg  := int(( -7126288 *xx +  16527432 *yy+  416715 *zz)/152587890625)
-	 bb  := int(( 78207 *xx +  -347411 *yy+  12447743 *zz)/152587890625)
+	 bb  := int(( 78207 *xx -347411 *yy+  12447743 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -352,9 +352,9 @@ func EciToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToEci converts from CIE XYZ to ECI RGB with D50 illuminator. 
 func XYZToEci(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 17827618 *xx +  -4969847 *yy+  -2690101 *zz)/152587890625)
-	 gg  := int(( -9593623 *xx +  19477962 *yy+  -275807 *zz)/152587890625)
-	 bb  := int(( 859317 *xx +  -1744674 *yy+  13228273 *zz)/152587890625)
+	 rr  := int(( 17827618 *xx -4969847 *yy-2690101 *zz)/152587890625)
+	 gg  := int(( -9593623 *xx +  19477962 *yy-275807 *zz)/152587890625)
+	 bb  := int(( 859317 *xx -1744674 *yy+  13228273 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -393,9 +393,9 @@ func EktaSpaceToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToEktaSpace converts from CIE XYZ to Ekta Space PS5 with D50 illuminator. 
 func XYZToEktaSpace(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 20043819 *xx +  -7304844 *yy+  -2450052 *zz)/152587890625)
+	 rr  := int(( 20043819 *xx -7304844 *yy-2450052 *zz)/152587890625)
 	 gg  := int(( -7110285 *xx +  16202125 *yy+  792226 *zz)/152587890625)
-	 bb  := int(( 381263 *xx +  -868780 *yy+  12725438 *zz)/152587890625)
+	 bb  := int(( 381263 *xx -868780 *yy+  12725438 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -434,9 +434,9 @@ func NTSCToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToNTSC converts from CIE XYZ to NTSC RGB with D50 illuminator. 
 func XYZToNTSC(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 19099961 *xx +  -5324542 *yy+  -2882091 *zz)/152587890625)
-	 gg  := int(( -9846663 *xx +  19991710 *yy+  -283082 *zz)/152587890625)
-	 bb  := int(( 583056 *xx +  -1183781 *yy+  8975535 *zz)/152587890625)
+	 rr  := int(( 19099961 *xx -5324542 *yy-2882091 *zz)/152587890625)
+	 gg  := int(( -9846663 *xx +  19991710 *yy-283082 *zz)/152587890625)
+	 bb  := int(( 583056 *xx -1183781 *yy+  8975535 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -476,9 +476,9 @@ func PALToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToPAL converts from CIE XYZ to PAL/SECAM RGB with D65 illuminator. 
 func XYZToPAL(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 30628971 *xx +  -13931791 *yy+  -4757517 *zz)/152587890625)
+	 rr  := int(( 30628971 *xx -13931791 *yy-4757517 *zz)/152587890625)
 	 gg  := int(( -9692660 *xx +  18760108 *yy+  415560 *zz)/152587890625)
-	 bb  := int(( 678774 *xx +  -2288548 *yy+  10693490 *zz)/152587890625)
+	 bb  := int(( 678774 *xx -2288548 *yy+  10693490 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -517,7 +517,7 @@ func ProPhotoToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToProPhoto converts from CIE XYZ to  ProPhoto RGB with D50 illuminator. 
 func XYZToProPhoto(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 13459433 *xx +  -2556075 *yy+  -511118 *zz)/152587890625)
+	 rr  := int(( 13459433 *xx -2556075 *yy-511118 *zz)/152587890625)
 	 gg  := int(( -5445989 *xx +  15081673 *yy+  205351 *zz)/152587890625)
 	 bb  := int(( 0 *xx +  0 *yy+  12118128 *zz)/152587890625)
 
@@ -560,9 +560,9 @@ func SMPTE_CToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToSMPTE_C converts from CIE XYZ to SMPTE-C RGB with D65 illuminator. 
 func XYZToSMPTE_C(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 35053960 *xx +  -17394894 *yy+  -5439640 *zz)/152587890625)
+	 rr  := int(( 35053960 *xx -17394894 *yy-5439640 *zz)/152587890625)
 	 gg  := int(( -10690722 *xx +  19778245 *yy+  351722 *zz)/152587890625)
-	 bb  := int(( 563200 *xx +  -1970226 *yy+  10502026 *zz)/152587890625)
+	 bb  := int(( 563200 *xx -1970226 *yy+  10502026 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -601,9 +601,9 @@ func SRGBToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToSRGB converts from CIE XYZ to sRGB with D65 illuminator. 
 func XYZToSRGB(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 32404542 *xx +  -15371385 *yy+  -4985314 *zz)/152587890625)
+	 rr  := int(( 32404542 *xx -15371385 *yy-4985314 *zz)/152587890625)
 	 gg  := int(( -9692660 *xx +  18760108 *yy+  415560 *zz)/152587890625)
-	 bb  := int(( 556434 *xx +  -2040259 *yy+  10572252 *zz)/152587890625)
+	 bb  := int(( 556434 *xx -2040259 *yy+  10572252 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
@@ -642,9 +642,9 @@ func WGamutToXYZ(r,g,b uint16) (x, y, z int) {
 // XYZToWGamut converts from CIE XYZ to Wide Gamut RGB with D50 illuminator. 
 func XYZToWGamut(x, y, z int) (r, g, b uint16) {
 	xx, yy, zz := int64(x), int64(y), int64(z)
-	 rr  := int(( 14628067 *xx +  -1840624 *yy+  -2743606 *zz)/152587890625)
+	 rr  := int(( 14628067 *xx -1840624 *yy-2743606 *zz)/152587890625)
 	 gg  := int(( -5217933 *xx +  14472381 *yy+  677227 *zz)/152587890625)
-	 bb  := int(( 349342 *xx +  -968931 *yy+  12884099 *zz)/152587890625)
+	 bb  := int(( 349342 *xx -968931 *yy+  12884099 *zz)/152587890625)
 
 	if rr < 0 {
 		rr = 0
