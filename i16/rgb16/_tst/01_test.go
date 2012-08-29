@@ -31,9 +31,9 @@ func TestRgb2RgbRoundtrip(t *testing.T) {
 	)
 	type fn1 func(r, g, b uint16) (x, y, z int)
 	type fn2 func(x, y, z int) (r, g, b uint16)
-	f1 := []fn1{AdobeToXYZ, AppleToXYZ, BestToXYZ, BetaToXYZ, BruceToXYZ, CIEToXYZ, ColorMatchToXYZ, DonToXYZ, EciToXYZ, EktaSpaceToXYZ, NTSCToXYZ, PALToXYZ, ProPhotoToXYZ, SMPTE_CToXYZ, SRGBToXYZ, WGamutToXYZ, AdobeToXYZ_D50, AppleToXYZ_D50, BruceToXYZ_D50, CieToXYZ_D50, NTSCToXYZ_D50, PALToXYZ_D50, SMPTE_CToXYZ_D50, SRGBToXYZ_D50}
+	f1 := []fn1{AdobeToXYZ, AppleToXYZ, BestToXYZ, BetaToXYZ, BruceToXYZ, CIEToXYZ, ColorMatchToXYZ, DonToXYZ, ECIToXYZ, EktaSpaceToXYZ, NTSCToXYZ, PALToXYZ, ProPhotoToXYZ, SMPTE_CToXYZ, SRGBToXYZ, WGamutToXYZ, AdobeToXYZ_D50, AppleToXYZ_D50, BruceToXYZ_D50, CieToXYZ_D50, NTSCToXYZ_D50, PALToXYZ_D50, SMPTE_CToXYZ_D50, SRGBToXYZ_D50}
 
-	f2 := []fn2{XYZToAdobe, XYZToApple, XYZToBest, XYZToBeta, XYZToBruce, XYZToCIE, XYZToColorMatch, XYZToDon, XYZToEci, XYZToEktaSpace, XYZToNTSC, XYZToPAL, XYZToProPhoto, XYZToSMPTE_C, XYZToSRGB, XYZToWGamut, XYZToAdobe_D50, XYZToApple_D50, XYZToBruce_D50, XYZToCie_D50, XYZToNTSC_D50, XYZToPAL_D50, XYZToSMPTE_C_D50, XYZToSRGB_D50}
+	f2 := []fn2{XYZToAdobe, XYZToApple, XYZToBest, XYZToBeta, XYZToBruce, XYZToCIE, XYZToColorMatch, XYZToDon, XYZToECI, XYZToEktaSpace, XYZToNTSC, XYZToPAL, XYZToProPhoto, XYZToSMPTE_C, XYZToSRGB, XYZToWGamut, XYZToAdobe_D50, XYZToApple_D50, XYZToBruce_D50, XYZToCie_D50, XYZToNTSC_D50, XYZToPAL_D50, XYZToSMPTE_C_D50, XYZToSRGB_D50}
 
 tests := 0
 	nFunc := len(f1)

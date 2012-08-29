@@ -45,7 +45,7 @@ hi:=1.0+eps
 		{CIEToXYZ, XYZToCIE},
 		{ColorMatchToXYZ, XYZToColorMatch},
 		{DonToXYZ, XYZToDon},
-		{EciToXYZ, XYZToEci},
+		{ECIToXYZ, XYZToECI},
 		{EktaSpaceToXYZ, XYZToEktaSpace},
 		{NTSCToXYZ, XYZToNTSC},
 		{PALToXYZ, XYZToPAL},

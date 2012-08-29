@@ -56,10 +56,10 @@ func AdobeToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// AdobeToEci converts from Adobe RGB to Eci RGB colorspace. 
-func AdobeToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// AdobeToECI converts from Adobe RGB to ECI RGB colorspace. 
+func AdobeToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  AdobeToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -217,10 +217,10 @@ func AppleToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// AppleToEci converts from Apple RGB to Eci RGB colorspace. 
-func AppleToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// AppleToECI converts from Apple RGB to ECI RGB colorspace. 
+func AppleToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  AppleToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -378,10 +378,10 @@ func BestToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// BestToEci converts from Best RGB to Eci RGB colorspace. 
-func BestToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// BestToECI converts from Best RGB to ECI RGB colorspace. 
+func BestToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  BestToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -539,10 +539,10 @@ func BetaToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// BetaToEci converts from Beta RGB to Eci RGB colorspace. 
-func BetaToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// BetaToECI converts from Beta RGB to ECI RGB colorspace. 
+func BetaToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  BetaToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -700,10 +700,10 @@ func BruceToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// BruceToEci converts from Bruce RGB to Eci RGB colorspace. 
-func BruceToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// BruceToECI converts from Bruce RGB to ECI RGB colorspace. 
+func BruceToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  BruceToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -861,10 +861,10 @@ func CIEToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// CIEToEci converts from CIE RGB to Eci RGB colorspace. 
-func CIEToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// CIEToECI converts from CIE RGB to ECI RGB colorspace. 
+func CIEToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  CIEToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1022,10 +1022,10 @@ func ColorMatchToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// ColorMatchToEci converts from ColorMatch RGB to Eci RGB colorspace. 
-func ColorMatchToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// ColorMatchToECI converts from ColorMatch RGB to ECI RGB colorspace. 
+func ColorMatchToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  ColorMatchToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1183,10 +1183,10 @@ func DonToColorMatch(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// DonToEci converts from Don RGB to Eci RGB colorspace. 
-func DonToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// DonToECI converts from Don RGB to ECI RGB colorspace. 
+func DonToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  DonToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1295,163 +1295,163 @@ func DonToSRGB_D50(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// EciToAdobe converts from Eci RGB to Adobe RGB colorspace. 
-func EciToAdobe(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToAdobe converts from ECI RGB to Adobe RGB colorspace. 
+func ECIToAdobe(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToAdobe(x, y, z)
 	return
 }
 
-// EciToApple converts from Eci RGB to Apple RGB colorspace. 
-func EciToApple(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToApple converts from ECI RGB to Apple RGB colorspace. 
+func ECIToApple(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToApple(x, y, z)
 	return
 }
 
-// EciToBest converts from Eci RGB to Best RGB colorspace. 
-func EciToBest(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToBest converts from ECI RGB to Best RGB colorspace. 
+func ECIToBest(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToBest(x, y, z)
 	return
 }
 
-// EciToBeta converts from Eci RGB to Beta RGB colorspace. 
-func EciToBeta(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToBeta converts from ECI RGB to Beta RGB colorspace. 
+func ECIToBeta(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToBeta(x, y, z)
 	return
 }
 
-// EciToBruce converts from Eci RGB to Bruce RGB colorspace. 
-func EciToBruce(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToBruce converts from ECI RGB to Bruce RGB colorspace. 
+func ECIToBruce(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToBruce(x, y, z)
 	return
 }
 
-// EciToCIE converts from Eci RGB to CIE RGB colorspace. 
-func EciToCIE(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToCIE converts from ECI RGB to CIE RGB colorspace. 
+func ECIToCIE(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToCIE(x, y, z)
 	return
 }
 
-// EciToColorMatch converts from Eci RGB to ColorMatch RGB colorspace. 
-func EciToColorMatch(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToColorMatch converts from ECI RGB to ColorMatch RGB colorspace. 
+func ECIToColorMatch(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToColorMatch(x, y, z)
 	return
 }
 
-// EciToDon converts from Eci RGB to Don RGB colorspace. 
-func EciToDon(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToDon converts from ECI RGB to Don RGB colorspace. 
+func ECIToDon(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToDon(x, y, z)
 	return
 }
 
-// EciToEktaSpace converts from Eci RGB to EktaSpace RGB colorspace. 
-func EciToEktaSpace(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToEktaSpace converts from ECI RGB to EktaSpace RGB colorspace. 
+func ECIToEktaSpace(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToEktaSpace(x, y, z)
 	return
 }
 
-// EciToNTSC converts from Eci RGB to NTSC RGB colorspace. 
-func EciToNTSC(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToNTSC converts from ECI RGB to NTSC RGB colorspace. 
+func ECIToNTSC(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToNTSC(x, y, z)
 	return
 }
 
-// EciToPAL converts from Eci RGB to PAL RGB colorspace. 
-func EciToPAL(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToPAL converts from ECI RGB to PAL RGB colorspace. 
+func ECIToPAL(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToPAL(x, y, z)
 	return
 }
 
-// EciToProPhoto converts from Eci RGB to ProPhoto RGB colorspace. 
-func EciToProPhoto(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToProPhoto converts from ECI RGB to ProPhoto RGB colorspace. 
+func ECIToProPhoto(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToProPhoto(x, y, z)
 	return
 }
 
-// EciToSMPTE_C converts from Eci RGB to SMPTE_C RGB colorspace. 
-func EciToSMPTE_C(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToSMPTE_C converts from ECI RGB to SMPTE_C RGB colorspace. 
+func ECIToSMPTE_C(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToSMPTE_C(x, y, z)
 	return
 }
 
-// EciToSRGB converts from Eci RGB to SRGB RGB colorspace. 
-func EciToSRGB(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToSRGB converts from ECI RGB to SRGB RGB colorspace. 
+func ECIToSRGB(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToSRGB(x, y, z)
 	return
 }
 
-// EciToWGamut converts from Eci RGB to WGamut RGB colorspace. 
-func EciToWGamut(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToWGamut converts from ECI RGB to WGamut RGB colorspace. 
+func ECIToWGamut(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToWGamut(x, y, z)
 	return
 }
 
-// EciToAdobe_D50 converts from Eci RGB to Adobe_D50 RGB colorspace. 
-func EciToAdobe_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToAdobe_D50 converts from ECI RGB to Adobe_D50 RGB colorspace. 
+func ECIToAdobe_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToAdobe_D50(x, y, z)
 	return
 }
 
-// EciToApple_D50 converts from Eci RGB to Apple_D50 RGB colorspace. 
-func EciToApple_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToApple_D50 converts from ECI RGB to Apple_D50 RGB colorspace. 
+func ECIToApple_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToApple_D50(x, y, z)
 	return
 }
 
-// EciToBruce_D50 converts from Eci RGB to Bruce_D50 RGB colorspace. 
-func EciToBruce_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToBruce_D50 converts from ECI RGB to Bruce_D50 RGB colorspace. 
+func ECIToBruce_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToBruce_D50(x, y, z)
 	return
 }
 
-// EciToCie_D50 converts from Eci RGB to Cie_D50 RGB colorspace. 
-func EciToCie_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToCie_D50 converts from ECI RGB to Cie_D50 RGB colorspace. 
+func ECIToCie_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToCie_D50(x, y, z)
 	return
 }
 
-// EciToNTSC_D50 converts from Eci RGB to NTSC_D50 RGB colorspace. 
-func EciToNTSC_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToNTSC_D50 converts from ECI RGB to NTSC_D50 RGB colorspace. 
+func ECIToNTSC_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToNTSC_D50(x, y, z)
 	return
 }
 
-// EciToPAL_D50 converts from Eci RGB to PAL_D50 RGB colorspace. 
-func EciToPAL_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToPAL_D50 converts from ECI RGB to PAL_D50 RGB colorspace. 
+func ECIToPAL_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToPAL_D50(x, y, z)
 	return
 }
 
-// EciToSMPTE_C_D50 converts from Eci RGB to SMPTE_C_D50 RGB colorspace. 
-func EciToSMPTE_C_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToSMPTE_C_D50 converts from ECI RGB to SMPTE_C_D50 RGB colorspace. 
+func ECIToSMPTE_C_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToSMPTE_C_D50(x, y, z)
 	return
 }
 
-// EciToSRGB_D50 converts from Eci RGB to SRGB_D50 RGB colorspace. 
-func EciToSRGB_D50(r, g, b uint16) (r1, g1, b1 uint16) {
-	x, y, z :=  EciToXYZ(r, g, b)
+// ECIToSRGB_D50 converts from ECI RGB to SRGB_D50 RGB colorspace. 
+func ECIToSRGB_D50(r, g, b uint16) (r1, g1, b1 uint16) {
+	x, y, z :=  ECIToXYZ(r, g, b)
 	r1, g1, b1 = XYZToSRGB_D50(x, y, z)
 	return
 }
@@ -1512,10 +1512,10 @@ func EktaSpaceToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// EktaSpaceToEci converts from EktaSpace RGB to Eci RGB colorspace. 
-func EktaSpaceToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// EktaSpaceToECI converts from EktaSpace RGB to ECI RGB colorspace. 
+func EktaSpaceToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  EktaSpaceToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1673,10 +1673,10 @@ func NTSCToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// NTSCToEci converts from NTSC RGB to Eci RGB colorspace. 
-func NTSCToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// NTSCToECI converts from NTSC RGB to ECI RGB colorspace. 
+func NTSCToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  NTSCToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1834,10 +1834,10 @@ func PALToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// PALToEci converts from PAL RGB to Eci RGB colorspace. 
-func PALToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// PALToECI converts from PAL RGB to ECI RGB colorspace. 
+func PALToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  PALToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -1995,10 +1995,10 @@ func ProPhotoToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// ProPhotoToEci converts from ProPhoto RGB to Eci RGB colorspace. 
-func ProPhotoToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// ProPhotoToECI converts from ProPhoto RGB to ECI RGB colorspace. 
+func ProPhotoToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  ProPhotoToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2156,10 +2156,10 @@ func SMPTE_CToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// SMPTE_CToEci converts from SMPTE_C RGB to Eci RGB colorspace. 
-func SMPTE_CToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// SMPTE_CToECI converts from SMPTE_C RGB to ECI RGB colorspace. 
+func SMPTE_CToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  SMPTE_CToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2317,10 +2317,10 @@ func SRGBToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// SRGBToEci converts from SRGB RGB to Eci RGB colorspace. 
-func SRGBToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// SRGBToECI converts from SRGB RGB to ECI RGB colorspace. 
+func SRGBToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  SRGBToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2478,10 +2478,10 @@ func WGamutToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// WGamutToEci converts from WGamut RGB to Eci RGB colorspace. 
-func WGamutToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// WGamutToECI converts from WGamut RGB to ECI RGB colorspace. 
+func WGamutToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  WGamutToXYZ(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2639,10 +2639,10 @@ func Adobe_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// Adobe_D50ToEci converts from Adobe_D50 RGB to Eci RGB colorspace. 
-func Adobe_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// Adobe_D50ToECI converts from Adobe_D50 RGB to ECI RGB colorspace. 
+func Adobe_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  AdobeToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2800,10 +2800,10 @@ func Apple_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// Apple_D50ToEci converts from Apple_D50 RGB to Eci RGB colorspace. 
-func Apple_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// Apple_D50ToECI converts from Apple_D50 RGB to ECI RGB colorspace. 
+func Apple_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  AppleToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -2961,10 +2961,10 @@ func Bruce_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// Bruce_D50ToEci converts from Bruce_D50 RGB to Eci RGB colorspace. 
-func Bruce_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// Bruce_D50ToECI converts from Bruce_D50 RGB to ECI RGB colorspace. 
+func Bruce_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  BruceToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -3122,10 +3122,10 @@ func Cie_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// Cie_D50ToEci converts from Cie_D50 RGB to Eci RGB colorspace. 
-func Cie_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// Cie_D50ToECI converts from Cie_D50 RGB to ECI RGB colorspace. 
+func Cie_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  CieToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -3283,10 +3283,10 @@ func NTSC_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// NTSC_D50ToEci converts from NTSC_D50 RGB to Eci RGB colorspace. 
-func NTSC_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// NTSC_D50ToECI converts from NTSC_D50 RGB to ECI RGB colorspace. 
+func NTSC_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  NTSCToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -3444,10 +3444,10 @@ func PAL_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// PAL_D50ToEci converts from PAL_D50 RGB to Eci RGB colorspace. 
-func PAL_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// PAL_D50ToECI converts from PAL_D50 RGB to ECI RGB colorspace. 
+func PAL_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  PALToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -3605,10 +3605,10 @@ func SMPTE_C_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// SMPTE_C_D50ToEci converts from SMPTE_C_D50 RGB to Eci RGB colorspace. 
-func SMPTE_C_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// SMPTE_C_D50ToECI converts from SMPTE_C_D50 RGB to ECI RGB colorspace. 
+func SMPTE_C_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  SMPTE_CToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 
@@ -3766,10 +3766,10 @@ func SRGB_D50ToDon(r, g, b uint16) (r1, g1, b1 uint16) {
 	return
 }
 
-// SRGB_D50ToEci converts from SRGB_D50 RGB to Eci RGB colorspace. 
-func SRGB_D50ToEci(r, g, b uint16) (r1, g1, b1 uint16) {
+// SRGB_D50ToECI converts from SRGB_D50 RGB to ECI RGB colorspace. 
+func SRGB_D50ToECI(r, g, b uint16) (r1, g1, b1 uint16) {
 	x, y, z :=  SRGBToXYZ_D50(r, g, b)
-	r1, g1, b1 = XYZToEci(x, y, z)
+	r1, g1, b1 = XYZToECI(x, y, z)
 	return
 }
 

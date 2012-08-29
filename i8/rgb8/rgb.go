@@ -296,8 +296,8 @@ func XYZToDon(x, y, z int) (r, g, b uint8) {
 	return
 }
 
-// EciToXYZ converts from  ECI RGB with D50 illuminator to CIE XYZ. 
-func EciToXYZ(r, g, b uint8) (x, y, z int) {
+// ECIToXYZ converts from  ECI RGB with D50 illuminator to CIE XYZ. 
+func ECIToXYZ(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 	x = 2549820*rr + 698342*gg + 533091*bb
 	y = 1255881*rr + 2361063*gg + 304623*bb
@@ -305,8 +305,8 @@ func EciToXYZ(r, g, b uint8) (x, y, z int) {
 	return
 }
 
-// XYZToEci converts from CIE XYZ to ECI RGB with D50 illuminator. 
-func XYZToEci(x, y, z int) (r, g, b uint8) {
+// XYZToECI converts from CIE XYZ to ECI RGB with D50 illuminator. 
+func XYZToECI(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4

@@ -133,16 +133,16 @@ func XYZToDon(x, y, z float64) (r, g, b float64) {
 	return
 }
 
-// EciToXYZ converts from  ECI RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
-func EciToXYZ(r, g, b float64) (x, y, z float64) {
+// ECIToXYZ converts from  ECI RGB with D50 illuminator to CIE XYZ. RGB values must be linear  and in the nominal range [0.0, 1.0]. 
+func ECIToXYZ(r, g, b float64) (x, y, z float64) {
 	x = 0.6502043*r + 0.1780774*g + 0.1359384*b
 	y = 0.3202499*r + 0.6020711*g + 0.0776791*b
 	z = 0.0000000*r + 0.0678390*g + 0.7573710*b
 	return
 }
 
-// XYZToEci converts from CIE XYZ to ECI RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
-func XYZToEci(x, y, z float64) (r, g, b float64) {
+// XYZToECI converts from CIE XYZ to ECI RGB with D50 illuminator. Returned RGB values are linear and in the nominal range [0.0, 1.0]. 
+func XYZToECI(x, y, z float64) (r, g, b float64) {
 	r = 1.7827618*x -0.4969847*y -0.2690101*z
 	g = -0.9593623*x + 1.9477962*y -0.0275807*z
 	b = 0.0859317*x -0.1744674*y + 1.3228273*z

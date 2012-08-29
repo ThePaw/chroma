@@ -88,9 +88,9 @@ func TestRgbToXYZ(t *testing.T) {
 	}
 
 	x0, y0, z0 = 0.195793, 0.206815, 0.543728
-	x, y, z = EciToXYZ(r, g, b)
+	x, y, z = ECIToXYZ(r, g, b)
 	if !(check_diff(x0, x) && check_diff(y0, y) && check_diff(z0, z)) {
-		t.Errorf(" EciToXYZ: \tXYZ 0 = %f, %f, %f   \n\t\t\tXYZ 1 = %f, %f, %f\n", x0, y0, z0, x, y, z)
+		t.Errorf(" ECIToXYZ: \tXYZ 0 = %f, %f, %f   \n\t\t\tXYZ 1 = %f, %f, %f\n", x0, y0, z0, x, y, z)
 	}
 
 	x0, y0, z0 = 0.182129, 0.176150, 0.556649

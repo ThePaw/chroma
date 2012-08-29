@@ -51,7 +51,7 @@ func TestRgb2RgbRoundtrip(t *testing.T) {
 		{CIEToXYZ, XYZToCIE},
 		{ColorMatchToXYZ, XYZToColorMatch},
 		{DonToXYZ, XYZToDon},
-		{EciToXYZ, XYZToEci},
+		{ECIToXYZ, XYZToECI},
 		{EktaSpaceToXYZ, XYZToEktaSpace},
 		{NTSCToXYZ, XYZToNTSC},
 		{PALToXYZ, XYZToPAL},
