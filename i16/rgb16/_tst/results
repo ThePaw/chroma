@@ -1,0 +1,45 @@
+### TestRgb2RgbRoundtrip ###
+Number of tests =  51520536
+Accuracy =  4
+Step =  512
+maxErr =  5.385164807134504
+Worst case: 
+RGB 0 =  64000 65024 64000
+RGB 1 =  64004 65027 64002
+PASS
+ok  	code.google.com/p/chroma/i16/rgb16	58.151s
+
+### TestRgb2RgbRoundtrip ###
+Testing fn # 0
+Testing fn # 1
+Testing fn # 2
+Testing fn # 3
+Testing fn # 4
+Testing fn # 5
+Testing fn # 6
+Testing fn # 7
+Testing fn # 8
+Testing fn # 9
+Testing fn # 10
+Testing fn # 11
+Testing fn # 12
+Testing fn # 13
+Testing fn # 14
+Testing fn # 15
+Testing fn # 16
+Testing fn # 17
+Testing fn # 18
+Testing fn # 19
+Testing fn # 20
+Testing fn # 21
+Testing fn # 22
+Testing fn # 23
+Number of tests =  302137368
+Accuracy =  4
+Step =  32
+maxErr =  5.385164807134504
+Worst case (appeared in function # 13 ): 
+RGB 0 =  63648 65504 65472
+RGB 1 =  63652 65507 65474
+PASS
+ok  	code.google.com/p/chroma/i16/rgb16	252541.242s

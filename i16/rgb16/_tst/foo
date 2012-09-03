@@ -1,0 +1,87 @@
+// Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
+
+package rgb16
+
+import (
+	"fmt"
+	"math"
+	"testing"
+)
+
+func check_diff(x, y uint16) bool {
+	const acc uint16 = 3 // accuracy
+	var d uint16
+	if x >= y {
+		d = x - y
+	} else {
+		d = y - x
+	}
+	if d > acc {
+		return false
+	}
+	return true
+}
+
+// Test that a subset of RGB space can be converted to XYZ and back to within tolerance. 
+func TestRgb2RgbRoundtrip(t *testing.T) {
+	var (
+		i, j, k, l, step	int
+		r, g, b              uint16
+		rw, gw, bw, r1w, g1w, b1w uint16
+	)
+	type fn1 func(r, g, b uint16) (r, g, b uint16)
+	type fn2 func(r, g, b uint16) (r, g, b uint16)
+	f1 := []fn1{Adobe_D50ToAdobe, Adobe_D50ToApple, Adobe_D50ToApple_D50, Adobe_D50ToBest, Adobe_D50ToBeta, Adobe_D50ToBruce, Adobe_D50ToBruce_D50, Adobe_D50ToCIE, Adobe_D50ToCIE_D50, Adobe_D50ToColorMatch, Adobe_D50ToDon, Adobe_D50ToECI, Adobe_D50ToEktaSpace, Adobe_D50ToNTSC, Adobe_D50ToNTSC_D50, Adobe_D50ToPAL, Adobe_D50ToPAL_D50, Adobe_D50ToProPhoto, Adobe_D50ToSMPTE_C, Adobe_D50ToSMPTE_C_D50, Adobe_D50ToSRGB, Adobe_D50ToSRGB_D50, Adobe_D50ToWGamut, AdobeToAdobe_D50, AdobeToApple, AdobeToApple_D50, AdobeToBest, AdobeToBeta, AdobeToBruce, AdobeToBruce_D50, AdobeToCIE, AdobeToCIE_D50, AdobeToColorMatch, AdobeToDon, AdobeToECI, AdobeToEktaSpace, AdobeToNTSC, AdobeToNTSC_D50, AdobeToPAL, AdobeToPAL_D50, AdobeToProPhoto, AdobeToSMPTE_C, AdobeToSMPTE_C_D50, AdobeToSRGB, AdobeToSRGB_D50, AdobeToWGamut, Apple_D50ToAdobe, Apple_D50ToAdobe_D50, Apple_D50ToApple, Apple_D50ToBest, Apple_D50ToBeta, Apple_D50ToBruce, Apple_D50ToBruce_D50, Apple_D50ToCIE, Apple_D50ToCIE_D50, Apple_D50ToColorMatch, Apple_D50ToDon, Apple_D50ToECI, Apple_D50ToEktaSpace, Apple_D50ToNTSC, Apple_D50ToNTSC_D50, Apple_D50ToPAL, Apple_D50ToPAL_D50, Apple_D50ToProPhoto, Apple_D50ToSMPTE_C, Apple_D50ToSMPTE_C_D50, Apple_D50ToSRGB, Apple_D50ToSRGB_D50, Apple_D50ToWGamut, AppleToAdobe, AppleToAdobe_D50, AppleToApple_D50, AppleToBest, AppleToBeta, AppleToBruce, AppleToBruce_D50, AppleToCIE, AppleToCIE_D50, AppleToColorMatch, AppleToDon, AppleToECI, AppleToEktaSpace, AppleToNTSC, AppleToNTSC_D50, AppleToPAL, AppleToPAL_D50, AppleToProPhoto, AppleToSMPTE_C, AppleToSMPTE_C_D50, AppleToSRGB, AppleToSRGB_D50, AppleToWGamut, BestToAdobe, BestToAdobe_D50, BestToApple, BestToApple_D50, BestToBeta, BestToBruce, BestToBruce_D50, BestToCIE, BestToCIE_D50, BestToColorMatch, BestToDon, BestToECI, BestToEktaSpace, BestToNTSC, BestToNTSC_D50, BestToPAL, BestToPAL_D50, BestToProPhoto, BestToSMPTE_C, BestToSMPTE_C_D50, BestToSRGB, BestToSRGB_D50, BestToWGamut}
+
+	f2 := []fn2{AdobeToAdobe_D50, AppleToAdobe_D50, Apple_D50ToAdobe_D50, BestToAdobe_D50, BetaToAdobe_D50, BruceToAdobe_D50, Bruce_D50ToAdobe_D50, CIEToAdobe_D50, CIE_D50ToAdobe_D50, ColorMatchToAdobe_D50, DonToAdobe_D50, ECIToAdobe_D50, EktaSpaceToAdobe_D50, NTSCToAdobe_D50, NTSC_D50ToAdobe_D50, PALToAdobe_D50, PAL_D50ToAdobe_D50, ProPhotoToAdobe_D50, SMPTE_CToAdobe_D50, SMPTE_C_D50ToAdobe_D50, SRGBToAdobe_D50, SRGB_D50ToAdobe_D50, WGamutToAdobe_D50, Adobe_D50ToAdobe, AppleToAdobe, Apple_D50ToAdobe, BestToAdobe, BetaToAdobe, BruceToAdobe, Bruce_D50ToAdobe, CIEToAdobe, CIE_D50ToAdobe, ColorMatchToAdobe, DonToAdobe, ECIToAdobe, EktaSpaceToAdobe, NTSCToAdobe, NTSC_D50ToAdobe, PALToAdobe, PAL_D50ToAdobe, ProPhotoToAdobe, SMPTE_CToAdobe, SMPTE_C_D50ToAdobe, SRGBToAdobe, SRGB_D50ToAdobe, WGamutToAdobe, AdobeToApple_D50, Adobe_D50ToApple_D50, AppleToApple_D50, BestToApple_D50, BetaToApple_D50, BruceToApple_D50, Bruce_D50ToApple_D50, CIEToApple_D50, CIE_D50ToApple_D50, ColorMatchToApple_D50, DonToApple_D50, ECIToApple_D50, EktaSpaceToApple_D50, NTSCToApple_D50, NTSC_D50ToApple_D50, PALToApple_D50, PAL_D50ToApple_D50, ProPhotoToApple_D50, SMPTE_CToApple_D50, SMPTE_C_D50ToApple_D50, SRGBToApple_D50, SRGB_D50ToApple_D50, WGamutToApple_D50, AdobeToApple, Adobe_D50ToApple, Apple_D50ToApple, BestToApple, BetaToApple, BruceToApple, Bruce_D50ToApple, CIEToApple, CIE_D50ToApple, ColorMatchToApple, DonToApple, ECIToApple, EktaSpaceToApple, NTSCToApple, NTSC_D50ToApple, PALToApple, PAL_D50ToApple, ProPhotoToApple, SMPTE_CToApple, SMPTE_C_D50ToApple, SRGBToApple, SRGB_D50ToApple, WGamutToApple, AdobeToBest, Adobe_D50ToBest, AppleToBest, Apple_D50ToBest, BetaToBest, BruceToBest, Bruce_D50ToBest, CIEToBest, CIE_D50ToBest, ColorMatchToBest, DonToBest, ECIToBest, EktaSpaceToBest, NTSCToBest, NTSC_D50ToBest, PALToBest, PAL_D50ToBest, ProPhotoToBest, SMPTE_CToBest, SMPTE_C_D50ToBest, SRGBToBest, SRGB_D50ToBest, WGamutToBest}
+
+tests := 0
+	nFunc := len(f1)
+	maxSqErr := 0
+	for i = 0; i < nFunc; i++ {
+		fmt.Println("Testing fn #", i)
+		step = 512
+		for j = 4096; j <= 61440; j += step {
+
+			for k = 4096; k <= 61440; k += step {
+				for l = 4096; l <= 61440; l += step {
+if j > 65535 {
+	j = 65535
+}
+if k > 65535 {
+	k = 65535
+}
+if l > 65535 {
+	l = 65535
+}
+
+
+
+r, g, b = uint16(j), uint16(k), uint16(l)
+					x, y, z := f1[i](r, g, b)
+//		fmt.Println("rgb: ", r,g,b)
+					tests++
+					r1, g1, b1 := f2[i](x, y, z)
+					if !(check_diff(r, r1) && check_diff(g, g1) && check_diff(b, b1)) {
+						//fmt.Printf(" fn # %d: x, y, z = %d, %d, %d  \n", i, x, y, z)
+						//fmt.Printf(" fn # %d: r, g, b = %d, %d, %d   r1, g1, b1 = %d, %d, %d\n", i, r, g, b, r1, g1, b1)
+						t.Errorf(" fn # %d: r, g, b = %d, %d, %d   r1, g1, b1 = %d, %d, %d\n", i, r, g, b, r1, g1, b1)
+					}
+					dr := (r - r1) * (r - r1)
+					dg := (g - g1) * (g - g1)
+					db := (b - b1) * (b - b1)
+					d := dr + dg + db
+					if int(d) > maxSqErr {
+						rw, gw, bw = r, g, b
+						r1w, g1w, b1w = r1, g1, b1
+						maxSqErr = int(d)
+					}
+				}
+			}
+		}
+	}
+	fmt.Println("maxErr = ", math.Pow(float64(maxSqErr), 0.5))
+	fmt.Println("RGB 0 = ", rw, gw, bw)
+	fmt.Println("RGB 1 = ", r1w, g1w, b1w)
+	fmt.Println("Number of tests = ", tests)
+}
