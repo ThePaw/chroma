@@ -1,6 +1,6 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-//  Conversion of different RGB colorspaces to CIE XYZ and back. Intended for conversion between RGB-colorspaces.  8 bits-per-channel.
+// Conversion of different RGB colorspaces to CIE XYZ and back. Intended for conversion between RGB-colorspaces.  8 bits-per-channel.
 // Supported RGB colorspaces and their reference whites:
 // Adobe RGB (1998) D65
 // Apple RGB D65
