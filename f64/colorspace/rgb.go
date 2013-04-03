@@ -47,4 +47,3 @@ func gammaCorrInv(x float64) (y float64) {
 	}
 	return
 }
-

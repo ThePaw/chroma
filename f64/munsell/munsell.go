@@ -3,6 +3,7 @@
 // Converts from Munsell  HVC with D65 illuminator to CIE XYZ according to 1967 renotation data [34]. 
 // XYZ values will be in the nominal range [0,1]. 
 // Ref.: [32][33] 
+
 package munsell
 
 // MunsellToXYZ converts from Munsell  HVC with D65 illuminator to CIE XYZ. 

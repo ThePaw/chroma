@@ -22,9 +22,9 @@ func XYZToAdobe(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (5205*x - 1440*y - 878*z)/1e6
-	gg := (-2471*x + 4783*y + 105*z)/1e6
-	bb := (34*x - 301*y + 2589*z)/1e6
+	rr := (5205*x - 1440*y - 878*z) / 1e6
+	gg := (-2471*x + 4783*y + 105*z) / 1e6
+	bb := (34*x - 301*y + 2589*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -58,9 +58,9 @@ func XYZToApple(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (7526*x - 3287*y - 1208*z)/1e6
-	gg := (-2767*x + 5076*y + 94*z)/1e6
-	bb := (218*x - 687*y + 2782*z)/1e6
+	rr := (7526*x - 3287*y - 1208*z) / 1e6
+	gg := (-2767*x + 5076*y + 94*z) / 1e6
+	bb := (218*x - 687*y + 2782*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -94,9 +94,9 @@ func XYZToBest(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (4475*x - 1233*y - 645*z)/1e6
-	gg := (-1387*x + 3842*y + 54*z)/1e6
-	bb := (16*x - 44*y + 3125*z)/1e6
+	rr := (4475*x - 1233*y - 645*z) / 1e6
+	gg := (-1387*x + 3842*y + 54*z) / 1e6
+	bb := (16*x - 44*y + 3125*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -130,9 +130,9 @@ func XYZToBeta(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (4292*x - 1092*y - 601*z)/1e6
-	gg := (-1966*x + 4351*y + 113*z)/1e6
-	bb := (102*x - 225*y + 3244*z)/1e6
+	rr := (4292*x - 1092*y - 601*z) / 1e6
+	gg := (-1966*x + 4351*y + 113*z) / 1e6
+	bb := (102*x - 225*y + 3244*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -166,9 +166,9 @@ func XYZToBruce(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (7000*x - 2896*y - 1109*z)/1e6
-	gg := (-2471*x + 4783*y + 105*z)/1e6
-	bb := (28*x - 290*y + 2583*z)/1e6
+	rr := (7000*x - 2896*y - 1109*z) / 1e6
+	gg := (-2471*x + 4783*y + 105*z) / 1e6
+	bb := (28*x - 290*y + 2583*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -202,9 +202,9 @@ func XYZToCIE(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (6045*x - 2295*y - 1200*z)/1e6
-	gg := (-1310*x + 3634*y + 225*z)/1e6
-	bb := (13*x - 37*y + 2573*z)/1e6
+	rr := (6045*x - 2295*y - 1200*z) / 1e6
+	gg := (-1310*x + 3634*y + 225*z) / 1e6
+	bb := (13*x - 37*y + 2573*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -238,9 +238,9 @@ func XYZToColorMatch(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (6737*x - 3119*y - 1002*z)/1e6
-	gg := (-2835*x + 5250*y + 40*z)/1e6
-	bb := (209*x - 715*y + 3712*z)/1e6
+	rr := (6737*x - 3119*y - 1002*z) / 1e6
+	gg := (-2835*x + 5250*y + 40*z) / 1e6
+	bb := (209*x - 715*y + 3712*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -274,9 +274,9 @@ func XYZToDon(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (4488*x - 1244*y - 646*z)/1e6
-	gg := (-1817*x + 4214*y + 106*z)/1e6
-	bb := (19*x - 88*y + 3174*z)/1e6
+	rr := (4488*x - 1244*y - 646*z) / 1e6
+	gg := (-1817*x + 4214*y + 106*z) / 1e6
+	bb := (19*x - 88*y + 3174*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -310,9 +310,9 @@ func XYZToECI(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (4546*x - 1267*y - 685*z)/1e6
-	gg := (-2446*x + 4966*y - 70*z)/1e6
-	bb := (219*x - 444*y + 3373*z)/1e6
+	rr := (4546*x - 1267*y - 685*z) / 1e6
+	gg := (-2446*x + 4966*y - 70*z) / 1e6
+	bb := (219*x - 444*y + 3373*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -346,9 +346,9 @@ func XYZToEktaSpace(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (5111*x - 1862*y - 624*z)/1e6
-	gg := (-1813*x + 4131*y + 202*z)/1e6
-	bb := (97*x - 221*y + 3244*z)/1e6
+	rr := (5111*x - 1862*y - 624*z) / 1e6
+	gg := (-1813*x + 4131*y + 202*z) / 1e6
+	bb := (97*x - 221*y + 3244*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -382,9 +382,9 @@ func XYZToNTSC(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (4870*x - 1357*y - 734*z)/1e6
-	gg := (-2510*x + 5097*y - 72*z)/1e6
-	bb := (148*x - 301*y + 2288*z)/1e6
+	rr := (4870*x - 1357*y - 734*z) / 1e6
+	gg := (-2510*x + 5097*y - 72*z) / 1e6
+	bb := (148*x - 301*y + 2288*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -418,9 +418,9 @@ func XYZToPAL(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (7810*x - 3552*y - 1213*z)/1e6
-	gg := (-2471*x + 4783*y + 105*z)/1e6
-	bb := (173*x - 583*y + 2726*z)/1e6
+	rr := (7810*x - 3552*y - 1213*z) / 1e6
+	gg := (-2471*x + 4783*y + 105*z) / 1e6
+	bb := (173*x - 583*y + 2726*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -445,7 +445,7 @@ func ProPhotoToXYZ(r, g, b uint8) (x, y, z int) {
 	rr, gg, bb := int(r), int(g), int(b)
 	x = 3128136*rr + 530163*gg + 122954*bb
 	y = 1129569*rr + 2791663*gg + 336*bb
-	z = 3236117*bb
+	z = 3236117 * bb
 	return
 }
 
@@ -454,9 +454,9 @@ func XYZToProPhoto(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (3432*x - 651*y - 130*z)/1e6
-	gg := (-1388*x + 3845*y + 52*z)/1e6
-	bb := (0*x + 0*y + 3090*z)/1e6
+	rr := (3432*x - 651*y - 130*z) / 1e6
+	gg := (-1388*x + 3845*y + 52*z) / 1e6
+	bb := (0*x + 0*y + 3090*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -490,9 +490,9 @@ func XYZToSMPTE_C(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (8938*x - 4435*y - 1387*z)/1e6
-	gg := (-2726*x + 5043*y + 89*z)/1e6
-	bb := (143*x - 502*y + 2678*z)/1e6
+	rr := (8938*x - 4435*y - 1387*z) / 1e6
+	gg := (-2726*x + 5043*y + 89*z) / 1e6
+	bb := (143*x - 502*y + 2678*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -526,9 +526,9 @@ func XYZToSRGB(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (8263*x - 3919*y - 1271*z)/1e6
-	gg := (-2471*x + 4783*y + 105*z)/1e6
-	bb := (141*x - 520*y + 2695*z)/1e6
+	rr := (8263*x - 3919*y - 1271*z) / 1e6
+	gg := (-2471*x + 4783*y + 105*z) / 1e6
+	bb := (141*x - 520*y + 2695*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {
@@ -562,9 +562,9 @@ func XYZToWGamut(x, y, z int) (r, g, b uint8) {
 	x /= 1e4
 	y /= 1e4
 	z /= 1e4
-	rr := (3730*x - 469*y - 699*z)/1e6
-	gg := (-1330*x + 3690*y + 172*z)/1e6
-	bb := (89*x - 247*y + 3285*z)/1e6
+	rr := (3730*x - 469*y - 699*z) / 1e6
+	gg := (-1330*x + 3690*y + 172*z) / 1e6
+	bb := (89*x - 247*y + 3285*z) / 1e6
 	if rr < 0 {
 		rr = 0
 	} else if rr > 255 {

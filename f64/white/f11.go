@@ -1,7 +1,8 @@
 // Copyright 2012 The Chroma Authors. All rights reserved. See the LICENSE file.
 
-// F11 illuminant conversion functions
 package white
+
+// F11 illuminant conversion functions
 
 // F11_A functions
 func F11_A_Bradford(xs, ys, zs float64) (xd, yd, zd float64) {
